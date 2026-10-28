@@ -2,8 +2,8 @@
 
 Snapshot of **548 platform-channel listings** and **48,751 programme rows** for
 **2026-10-27 through 2026-10-29** (`Asia/Ho_Chi_Minh`, UTC+7), plus VLC-ready
-playlists for the **155 platform streams** in the checked-in snapshot that
-passed a public, non-DRM audio/video probe.
+playlists for **151 platform streams** in the checked-in source-only snapshot.
+The combined playlist has **144 entries** (98 TV360 + 46 VTVgo).
 
 The repository is also wired for automatic operation: GitHub Actions refreshes
 the stream URLs every three hours, rebuilds the 3-day EPG daily for the current
@@ -60,16 +60,16 @@ search, channel selection and a note when a platform has not published a date.
 
 ## Coverage
 
-| Platform | Listings | EPG 27/10 | EPG 28/10 | EPG 29/10 | 3/3 days | Verified streams |
+| Platform | Listings | EPG 27/10 | EPG 28/10 | EPG 29/10 | 3/3 days | Included streams |
 |---|---:|---:|---:|---:|---:|---:|
 | TV360 | 176 | 7,816 | 7,717 | 1,314 | 23/176 | 101 |
-| FPT Play | 93 | 3,183 | 2,353 | 989 | 19/93 | 2 |
+| FPT Play | 93 | 3,183 | 2,353 | 989 | 19/93 | 0 |
 | HTV | 3 | 109 | 108 | 109 | 3/3 | 3 |
-| VTVgo | 123 | 5,919 | 4,133 | 2,473 | 62/123 | 49 |
+| VTVgo | 123 | 5,919 | 4,133 | 2,473 | 62/123 | 47 |
 | MyTV | 153 | 6,464 | 6,064 | 0 | 0/153 | 0 |
-| **Total** | **548** | **23,491** | **20,375** | **4,885** | **107/548** | **155** |
+| **Total** | **548** | **23,491** | **20,375** | **4,885** | **107/548** | **151** |
 
-The figures above describe the initial 2026-10-28 snapshot. The GitHub Actions
+The figures above describe the latest source-only snapshot. The GitHub Actions
 full rebuild refreshes the window to the current day plus two days whenever it
 runs, so the generated `multi_platform_report.md` and web viewer always describe
 the latest run. Third-day publication is uneven while providers publish it:
@@ -77,19 +77,25 @@ channels without a row for that date are left empty; no rows are copied
 between platforms. Re-running the extractor later fills them when the provider
 publishes.
 
+The included-stream counts come from the source-only refresh: the provider's
+public URL is kept after the free/non-DRM and VLC-host checks, without an
+`ffprobe` media probe from the CI runner. FPT Play's short-lived tokens are not
+usable from the US runner, and the combined playlist deliberately excludes
+them.
+
 ## Playlists
 
 | File | Entries | Token lifetime | Notes |
 |---|---:|---|---|
-| `output/all_free_channels.m3u` | 146 | hours | Combined playlist, one longest-lived verified stream per normalized channel name |
+| `output/all_free_channels.m3u` | 144 | hours | Combined playlist, one longest-lived source per normalized channel name |
 | `output/tv360_free_channels.m3u` | 101 | ~6 hours | TV360 only |
-| `output/fptplay_free_channels.m3u` | 2 | ~2-3 minutes | FPT Play only; open immediately after refresh |
+| `output/fptplay_free_channels.m3u` | 0 | ~2-3 minutes | FPT Play only; empty when the US runner cannot get a token |
 | `output/htv_free_channels.m3u` | 3 | HTV9 unknown, HTV7/HTV4 ~10 minutes | HTV only; open immediately after refresh |
-| `output/vtvgo_free_channels.m3u` | 49 | ~1-15 hours | VTVgo only; local/VTV6 tokens can expire at 01:00 |
+| `output/vtvgo_free_channels.m3u` | 47 | ~1-15 hours | VTVgo only; local/VTV6 tokens can expire at 01:00 |
 | `output/sctv_free_channels.m3u` | 11 | weeks (signed URL) | SCTV free/public channels; rebuilt by the same refresh command |
 | MyTV | 0 | n/a | EPG only; anonymous playback returns `401 nologin_play_channel` |
 
-The combined playlist contains **97 TV360 + 49 VTVgo** entries in the
+The combined playlist contains **98 TV360 + 46 VTVgo** entries in the
 checked-in snapshot. It deliberately excludes FPT Play and HTV7/HTV4 because
 those CDN tokens last only minutes and cannot be kept fresh by a normal refresh
 task. HTV7, HTV4 and HTV9 are still represented in the combined playlist through
@@ -104,11 +110,11 @@ the CDNs with HTTP 403, so the tokens cannot simply be removed.
 | Platform | Included | Login required | Paid/premium | DRM | No public stream |
 |---|---:|---:|---:|---:|---:|
 | TV360 | 101 | 23 | 28 | 14 | 10 |
-| FPT Play | 2 | 91 | 0 | 0 | 0 |
+| FPT Play | 0 | 91 | 0 | 0 | 2 |
 | HTV | 3 | 0 | 0 | 0 | 0 |
-| VTVgo | 49 | 62 | 0 | 0 | 12 |
+| VTVgo | 47 | 62 | 0 | 0 | 14 |
 | MyTV | 0 | 77 | 57 | 19 | 0 |
-| **Total** | **155** | **253** | **85** | **33** | **22** |
+| **Total** | **151** | **253** | **85** | **33** | **26** |
 
 Notable cases:
 
@@ -121,10 +127,13 @@ Notable cases:
 - **VTVgo** — 62 channels require login. Seven `VTVgo · ...` theme channels
   point at `fast-channel-stg.vtvdigital.vn`, a staging host rather than the
   production CDN; two full VLC sweeps opened 0/7 and 4/7 of them, so they are
-  unreliable and stay in the EPG dataset but not in the playlists. The
-  `vtvgolive-ott3.vtvdigital.vn` host fails the TLS handshake in VLC, so it is
-  blocked for playlists; Hà Tĩnh uses its verified public fallback CDN, while
-  Gia Lai has no alternative and is EPG-only.
+  unreliable and stay in the EPG dataset but not in the playlists. VLC 3.0.24
+  receives a fatal TLS alert from `vtvgolive-ott3`, `vtvgolive-liveh34`,
+  `vtvgolive-liveh12` and `vtvgolive-vtclc`, so those hosts are blocked for
+  playlists even when `ffprobe`/OpenSSL can read them. Provincial channels use
+  the broadcasters' own public CDNs (`luuchieu.truyenhinhso.vn`,
+  `kenhdp-vtvgo.vtvdigital.vn`) or the verified Hà Tĩnh fallback instead.
+  Quảng Ngãi 1 is EPG-only because its only remaining source returns HTTP 400.
 - **TV360** — paid, login-only and DRM channels keep their EPG rows but are
   excluded from the M3U.
 - **HTV** — all three public channels are playable and have EPG for all three
@@ -142,10 +151,15 @@ output:
   longer 20-second window, six of the eight failures passed; Hà Tĩnh's primary
   host failed but its public fallback CDN opened; Gia Lai's only source failed
   TLS and was removed.
-- Later refreshes added streams. The checked-in snapshot now has **146 combined
-  entries (97 TV360 + 49 VTVgo)**; every included URL passed the automated
-  `ffprobe` audio/video check, while the VLC sweep above covers the earlier
-  96 + 47 set.
+- Later refreshes added streams. The checked-in snapshot now has **144 combined
+  entries (98 TV360 + 46 VTVgo)**. A full `ffprobe` sweep from Vietnam opened
+  142/144; the two failures were transient `rr1-ateme` TLS resets and both
+  opened in VLC on retry.
+- The source-only playlist was also checked in VLC 3.0.24 for the channels that
+  previously failed: Ninh Bình, Phú Thọ, Thanh Hóa, Đồng Tháp, Hà Tĩnh, Sơn La,
+  Tuyên Quang, Cao Bằng, Lào Cai, Vĩnh Long 1, An Giang 2 and Cà Mau all opened
+  successfully. No `liveh34`, `liveh12`, `ott3`, `vtclc`, `vod-` or `lsm-` URL
+  remains in the combined playlist.
 - VLC runs must use `--no-crashdump`. A leftover "VLC crash reporting" window
   from a force-killed process blocks later launches and makes every entry look
   like a failure.
@@ -167,9 +181,18 @@ viewer, and rebuilds `output/sctv_free_channels.m3u` from
 Useful flags:
 
 ```powershell
-python refresh_multi_playlists.py --skip-sctv   # multi-platform only
-python refresh_multi_playlists.py --sctv-only   # SCTV playlist only
+python refresh_multi_playlists.py --skip-sctv     # multi-platform only
+python refresh_multi_playlists.py --sctv-only     # SCTV playlist only
+python refresh_multi_playlists.py --source-only   # keep provider URLs, no media probe
 ```
+
+`--source-only` is the mode used by GitHub Actions. It still calls the
+providers' anonymous playback APIs, applies the free/non-DRM checks and drops
+known-bad VLC hosts, but it does not run `ffprobe` against the media. Use it
+when the refresh machine is outside Vietnam and the CDNs refuse to serve that
+IP. It does **not** bypass geo-blocking: viewers still connect directly to the
+public CDN from their own network. The SCTV playlist is preserved rather than
+rebuilt, because SCTV verification is also geo-sensitive.
 
 The Windows wrapper forwards the same flags:
 
@@ -191,12 +214,18 @@ default. Override it with `--start-date YYYY-MM-DD` and `--days N`.
 
 The workflow in `.github/workflows/refresh.yml` runs automatically:
 
-- every 3 hours — refresh stream URLs, rebuild outputs and the SCTV playlist,
-  stage `public/`, deploy to Vercel;
+- every 3 hours — refresh stream URLs in source-only mode, preserve the SCTV
+  playlist, stage `public/`, deploy to Vercel;
 - daily at 01:30 UTC+7 — run `multi_extract.py` first to rebuild the current
-  3-day EPG, then run the same refresh and deployment;
+  3-day EPG, then run the same source-only refresh and deployment;
 - manually — **Actions → Refresh playlists and deploy → Run workflow**, with an
   optional `full_rebuild` checkbox.
+
+The job sets `IPTV_SOURCE_ONLY=1`, so both the full rebuild and the refresh
+keep the provider-advertised URLs without probing the media from the US runner.
+The validation step fails the job if the combined playlist drops below 100
+entries, if any blocked host (`liveh34`, `liveh12`, `ott3`, `vtclc`, `vod-`,
+`lsm-`) survives, or if the preserved SCTV playlist is empty.
 
 To enable deployment:
 
@@ -229,7 +258,9 @@ To enable deployment:
      `.vercel/project.json`.
 
 4. In GitHub, open **Settings → Secrets and variables → Actions** and add:
-   - `VERCEL_TOKEN` — Vercel **Account Settings → Tokens**.
+   - `VERCEL_TOKEN` — Vercel **Account Settings → Tokens**, scope **Full
+     Account**. A project-scoped token is rejected by the CLI when it retrieves
+     the project.
    - `VERCEL_ORG_ID`
    - `VERCEL_PROJECT_ID`
 
@@ -246,8 +277,17 @@ second, unrelated Vercel build.
 
 GitHub-hosted runners are outside Vietnam. Some providers may geo-block those
 addresses, so a CI run can verify fewer streams than a local run in Vietnam.
-The workflow does not use any geo-bypass; it only calls the same anonymous
-public endpoints as the providers' web players.
+The source-only mode avoids treating that as proof that the provider URL is
+invalid: it keeps the public URL that the provider's own player advertises and
+lets the viewer's player connect from Vietnam. This is not a proxy, VPN or
+geo-bypass, and no login/premium/DRM check is skipped.
+
+The trade-off is that CI cannot confirm that a URL currently returns media.
+The host blocklist and expiry checks reduce the risk, but a provider can still
+retire a URL between refreshes. If that becomes a problem, the robust upgrade
+is a small Vietnamese VPS running the normal (non-source-only) refresh; the
+workflow and Vercel deployment stay the same. The project does not depend on
+the user's personal PC.
 
 GitHub may pause scheduled workflows after a long period without repository
 activity. Re-enable or manually run the workflow from the Actions tab if that
