@@ -86,8 +86,9 @@ jobs:
           entries = m3u.count("#EXTINF")
           print(f"Combined M3U: {entries} entries")
           assert entries >= 100, (
-              f"combined M3U has only {entries} entries; source-only extraction "
-              "probably failed"
+              f"combined M3U has only {entries} entries; the provider APIs may "
+              "be geo-blocked from this runner and the previous URLs may have "
+              "expired"
           )
 
           blocked = (
@@ -149,6 +150,8 @@ jobs:
           name: generated-playlists-${{ github.run_number }}
           path: |
             output/all_platform_epg.xml
+            output/all_platform_data.json
+            output/all_platform_channels.csv
             output/all_free_channels.m3u
             output/sctv_free_channels.m3u
             output/stream_refresh_status.json
