@@ -1,0 +1,63 @@
+{
+ "refreshed_at": "2026-10-28T07:26:54+07:00",
+ "duration_seconds": 161.0,
+ "included_streams": 155,
+ "combined_playlist_entries": 146,
+ "per_platform": {
+  "tv360": {
+   "label": "TV360",
+   "channels": 176,
+   "programmes": 16847,
+   "included": 101
+  },
+  "fptplay": {
+   "label": "FPT Play",
+   "channels": 93,
+   "programmes": 6525,
+   "included": 2
+  },
+  "htv": {
+   "label": "HTV",
+   "channels": 3,
+   "programmes": 326,
+   "included": 3
+  },
+  "vtvgo": {
+   "label": "VTVgo",
+   "channels": 123,
+   "programmes": 12525,
+   "included": 49
+  },
+  "mytv": {
+   "label": "MyTV",
+   "channels": 153,
+   "programmes": 12528,
+   "included": 0
+  }
+ },
+ "earliest_stream_expiry": "2026-10-28T07:28:42+07:00",
+ "latest_stream_expiry": "2026-10-29T07:28:06+07:00",
+ "combined_earliest_stream_expiry": "2026-10-28T11:29:10+07:00",
+ "combined_latest_stream_expiry": "2026-10-29T07:28:06+07:00",
+ "expiry_note": "earliest_stream_expiry includes short-lived FPT Play/HTV per-platform snapshots; use the combined_* fields for the combined M3U.",
+ "playlists": [
+  "C:\\Users\\VHSON\\Documents\\Default Project\\output\\all_free_channels.m3u",
+  "C:\\Users\\VHSON\\Documents\\Default Project\\output\\tv360_free_channels.m3u",
+  "C:\\Users\\VHSON\\Documents\\Default Project\\output\\fptplay_free_channels.m3u",
+  "C:\\Users\\VHSON\\Documents\\Default Project\\output\\htv_free_channels.m3u",
+  "C:\\Users\\VHSON\\Documents\\Default Project\\output\\vtvgo_free_channels.m3u",
+  "C:\\Users\\VHSON\\Documents\\Default Project\\output\\sctv_free_channels.m3u"
+ ],
+ "sctv_free_playlist": {
+  "builder": "build_free_m3u.py",
+  "status": "ok",
+  "started_at": "2026-10-28T07:29:35+07:00",
+  "playlist": "C:\\Users\\VHSON\\Documents\\Default Project\\output\\sctv_free_channels.m3u",
+  "duration_seconds": 55.2,
+  "generated_at": "2026-10-28T07:30:30+07:00",
+  "free_channels_total": 15,
+  "verified_live": 11,
+  "vod_only": 4,
+  "unavailable": 0
+ }
+}
