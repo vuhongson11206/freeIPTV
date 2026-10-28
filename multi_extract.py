@@ -80,6 +80,18 @@ SSL_CTX.verify_mode = ssl.CERT_NONE
 FFPROBE = shutil.which("ffprobe")
 PROBE_TIMEOUT = 18
 
+# Source-only mode is for CI runners outside Vietnam.  The provider APIs still
+# return public stream URLs, but the CDNs often refuse to serve media to a US
+# runner, so an ffprobe there would wrongly discard most channels.  In this mode
+# we keep the provider-advertised URL (after the free/non-DRM checks and the
+# VLC-host blocklist) without probing the media itself.
+SOURCE_ONLY = os.environ.get("IPTV_SOURCE_ONLY", "").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+    "on",
+}
+
 # ---------------------------------------------------------------------------
 # generic helpers
 # ---------------------------------------------------------------------------
@@ -246,6 +258,21 @@ def probe_stream(url: str, referer: str) -> dict:
     if not url:
         result["error"] = "empty URL"
         return result
+
+    # Never put a token that is already expired (or about to expire) into a
+    # playlist, even when the media probe is skipped.
+    expiry = stream_expiry(url)
+    if expiry and expiry <= datetime.now(TZ) + timedelta(minutes=5):
+        result["error"] = f"token expired at {iso_local(expiry)}"
+        return result
+
+    if SOURCE_ONLY:
+        result["ok"] = True
+        result["format"] = "hls"
+        result["error"] = "source-only mode: media probe skipped"
+        result["method"] = "source-only"
+        return result
+
     if FFPROBE:
         cmd = [
             FFPROBE,
@@ -452,6 +479,7 @@ def tv360_get_link(channel_id: int) -> dict:
 def tv360_stream(channel: dict) -> dict:
     cid = channel["id"]
     last_error = ""
+    source_only_candidates: list[tuple[str, str, datetime | None]] = []
     for attempt in range(3):
         info = tv360_get_link(cid)
         url = str(info.get("urlStreaming") or "")
@@ -461,6 +489,31 @@ def tv360_stream(channel: dict) -> dict:
             continue
         if int(info.get("isDrm") or 0) != 0:
             return {"status": "excluded_drm", "error": "isDrm != 0", "url": "", "probe": None}
+
+        host = (urllib.parse.urlsplit(url).hostname or "").lower()
+        # TV360's movie/VOD channels use vod-/lsm- hosts.  They are not live
+        # channels and their URLs contain short start/stop windows.
+        if host.startswith(("vod-", "lsm-")):
+            return {
+                "status": "excluded_no_stream",
+                "error": "VOD/streaming host, not a live channel",
+                "url": "",
+                "probe": None,
+            }
+
+        if SOURCE_ONLY:
+            expiry = stream_expiry(url)
+            if expiry and expiry <= datetime.now(TZ) + timedelta(minutes=5):
+                last_error = f"token expired at {iso_local(expiry)}"
+                continue
+            source_only_candidates.append((host, url, expiry))
+            # The API load-balances between fo-hlc and rr1-ateme.  fo-hlc has
+            # been much more reliable for VLC, so ask for it once more.
+            if host == "fo-hlc.tv360.vn":
+                break
+            time.sleep(0.2)
+            continue
+
         probe = probe_stream(url, "https://tv360.vn/")
         if probe["ok"]:
             return {
@@ -472,6 +525,28 @@ def tv360_stream(channel: dict) -> dict:
             }
         last_error = probe.get("error") or "ffprobe failed"
         time.sleep(0.3)
+
+    if SOURCE_ONLY:
+        if not source_only_candidates:
+            return {"status": "excluded_no_stream", "error": last_error, "url": "", "probe": None}
+        rank = {"fo-hlc.tv360.vn": 0, "rr1-ateme.tv360.vn": 1}
+        source_only_candidates.sort(key=lambda item: rank.get(item[0], 2))
+        host, url, expiry = source_only_candidates[0]
+        return {
+            "status": "included",
+            "error": "source-only mode: media probe skipped",
+            "url": url,
+            "probe": {
+                "ok": True,
+                "format": "hls",
+                "height": None,
+                "streams": [],
+                "error": "source-only mode: media probe skipped",
+                "method": "source-only",
+            },
+            "expires": iso_local(expiry) if expiry else "",
+        }
+
     return {"status": "excluded_no_stream", "error": last_error, "url": "", "probe": None}
 
 
@@ -928,15 +1003,58 @@ VTVGO_HEADERS = {
     "Accept": "application/json, text/plain, */*",
 }
 
-# VLC's GnuTLS stack cannot complete a handshake with this VTVgo edge host.
-# ffprobe (OpenSSL) sometimes succeeds, so a plain probe is not enough; skip it
-# for playlist use and rely on the provider's alternate source or a fallback.
-VTVGO_VLC_BLOCKED_HOSTS = {"vtvgolive-ott3.vtvdigital.vn"}
+# VLC's GnuTLS stack cannot complete a handshake with these VTVgo edge hosts.
+# ffprobe (OpenSSL) sometimes succeeds, so a plain probe is not enough; skip
+# them for playlist use and rely on the provider's alternate source or a
+# fallback.  liveh34/liveh12 are the hosts that fail with a fatal TLS alert in
+# VLC 3.0.24 on Windows.
+VTVGO_VLC_BLOCKED_HOSTS = {
+    "vtvgolive-ott3.vtvdigital.vn",
+    "vtvgolive-liveh34.vtvdigital.vn",
+    "vtvgolive-liveh12.vtvdigital.vn",
+    # Confirmed with VLC 3.0.24: every vtclc URL fails the GnuTLS handshake
+    # with a fatal alert, even when ffprobe/OpenSSL can read it.
+    "vtvgolive-vtclc.vtvdigital.vn",
+}
+
+# Prefer hosts that are known to work in VLC on Vietnamese networks.  The
+# provider sometimes lists several CDNs for the same channel; picking the
+# first one blindly can select a host that only works in a browser.
+VTVGO_HOST_PREFERENCE = (
+    "live-diaphuong-aws.vtvdigital.vn",
+    "live-vtv-aws.vtvdigital.vn",
+    "live-vtv-qt-aws.vtvdigital.vn",
+    "vtv-live-push-token.akamaized.net",
+    "vtvgolive-vtv02.vtvdigital.vn",
+    # Provincial broadcasters' own CDNs: tokenless and VLC-safe.
+    "luuchieu.truyenhinhso.vn",
+    "kenhdp-vtvgo.vtvdigital.vn",
+    "luuchieu1.vtcplay.vn",
+    "vtvgolive-ssaimh.vtvdigital.vn",
+    "vtvgoliveapp2-aws-tn.vtvdigital.vn",
+    "vtvgolivemh-plus-tn.vtvdigital.vn",
+    "vtvgolive-vtvcab.vtvdigital.vn",
+)
+
+
+def vtvgo_host_rank(url: str) -> int:
+    host = (urllib.parse.urlsplit(url).hostname or "").lower()
+    try:
+        return VTVGO_HOST_PREFERENCE.index(host)
+    except ValueError:
+        return len(VTVGO_HOST_PREFERENCE) + 1
 
 # Hà Tĩnh's only public VTVgo source is on the blocked host above. This public
 # backup CDN is advertised by the channel's own player and was verified in VLC.
 VTVGO_FALLBACKS = {
     "Truyền hình Hà Tĩnh": "https://cohauw9bgpvod.vcdn.cloud/httv1/index.m3u8",
+}
+
+# Channels whose only advertised VTVgo source is currently broken and has no
+# alternate host.  Keep them out of source-only playlists instead of shipping a
+# URL that returns HTTP 400.  They remain in the EPG dataset.
+VTVGO_SOURCE_ONLY_EXCLUDE = {
+    "Truyền hình Quảng Ngãi 1",
 }
 
 
@@ -989,6 +1107,14 @@ def vtvgo_epg_batch(channel_ids: list[str]) -> dict:
 
 
 def vtvgo_playback(channel: dict) -> dict:
+    name = str(channel.get("name") or "")
+    if SOURCE_ONLY and name in VTVGO_SOURCE_ONLY_EXCLUDE:
+        return {
+            "status": "excluded_no_stream",
+            "error": "source-only mode: known unavailable VTVgo source",
+            "url": "",
+            "probe": None,
+        }
     body = json.dumps({"channelId": str(channel["id"]), "platform": "web"}).encode()
     status, payload = http_json(
         "https://api.vtvdigital.org/live-channel/v21.0/playback/source",
@@ -1016,6 +1142,10 @@ def vtvgo_playback(channel: dict) -> dict:
                 urls.append(candidate)
     if not urls:
         return {"status": "excluded_no_stream", "error": "no HLS source"}
+    # Stable order: known-good VLC hosts first, unknown hosts last.  The
+    # provider's original order is preserved within each rank.
+    urls = sorted(enumerate(urls), key=lambda item: (vtvgo_host_rank(item[1]), item[0]))
+    urls = [url for _, url in urls]
     errors: list[str] = []
 
     def try_url(candidate: str, label: str):
@@ -1036,6 +1166,14 @@ def vtvgo_playback(channel: dict) -> dict:
             }
         errors.append(f"{label}: {probe.get('error') or 'ffprobe failed'}")
         return None
+
+    fallback = VTVGO_FALLBACKS.get(name)
+    if SOURCE_ONLY and fallback:
+        # The fallback is a verified public CDN; prefer it over a primary host
+        # that is known to fail in VLC.
+        result = try_url(fallback, "fallback source; source-only mode")
+        if result:
+            return result
 
     for url in urls:
         host = (urllib.parse.urlsplit(url).hostname or "").lower()
@@ -1526,6 +1664,8 @@ def dedupe_combined(channels: list[dict]) -> list[dict]:
             continue
         host = (urllib.parse.urlsplit(row["stream_url"]).hostname or "").lower()
         if "stg" in host or host in VTVGO_VLC_BLOCKED_HOSTS:
+            continue
+        if host.startswith(("vod-", "lsm-")):
             continue
         key = norm(row["name"])
         if not key:
