@@ -15,7 +15,10 @@ Window: 3 days starting today in Asia/Ho_Chi_Minh (UTC+7).  Override with
 
 Only public/anonymous endpoints are used.  A channel is put in an M3U only
 when its public player returns a clear (non-DRM) HLS URL and ffprobe can read
-audio/video from it.  No login, subscription, paywall or DRM bypass is used.
+audio/video from it.  In source-only mode (``IPTV_SOURCE_ONLY=1``) the media
+probe is skipped, and a still-valid URL from the previous snapshot may be
+carried forward when the provider API returns no fresh link.  No login,
+subscription, paywall or DRM bypass is used.
 
 Usage:
     python multi_extract.py       # full extract + build
@@ -1576,6 +1579,95 @@ def set_dates(days: list[str]) -> None:
     ]
 
 
+def load_previous_channels() -> list[dict]:
+    """Load the channel rows from the previous combined dataset, if any."""
+    path = OUTPUT_DIR / "all_platform_data.json"
+    if not path.exists():
+        return []
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    channels = payload.get("channels") or []
+    return channels if isinstance(channels, list) else []
+
+
+def merge_previous_streams(channels: list[dict], previous: list[dict]) -> int:
+    """Carry forward still-valid URLs when source-only extraction gets no link.
+
+    GitHub-hosted runners are outside Vietnam, and the providers' playback
+    endpoints often return no URL there even though the EPG APIs work.  A full
+    rebuild would otherwise replace a working playlist with a handful of
+    channels.  Keep the previous public URL only when it is still valid, is not
+    on a blocked/VOD/staging host, and the channel is still free and anonymous.
+    Fresh results always win.
+    """
+    if not SOURCE_ONLY or not previous:
+        return 0
+    by_key = {}
+    for old in previous:
+        if old.get("stream_status") != "included" or not old.get("stream_url"):
+            continue
+        key = (old.get("platform"), str(old.get("platform_channel_id") or ""))
+        if key[1]:
+            by_key[key] = old
+    carried = 0
+    now = datetime.now(TZ)
+    for row in channels:
+        if row.get("stream_status") == "included" and row.get("stream_url"):
+            continue
+        if row.get("stream_status") not in {
+            "excluded_no_stream",
+            "excluded_unavailable",
+            "public_unverified",
+            "",
+        }:
+            continue
+        if not row.get("is_free", 1):
+            continue
+        if int(row.get("is_drm") or 0) != 0 or row.get("need_login"):
+            continue
+        key = (row.get("platform"), str(row.get("platform_channel_id") or ""))
+        old = by_key.get(key)
+        if not old:
+            continue
+        url = str(old.get("stream_url") or "")
+        if not url:
+            continue
+        host = (urllib.parse.urlsplit(url).hostname or "").lower()
+        if "stg" in host or host in VTVGO_VLC_BLOCKED_HOSTS:
+            continue
+        if host.startswith(("vod-", "lsm-")):
+            continue
+        if row.get("platform") == "vtvgo" and row.get("name") in VTVGO_SOURCE_ONLY_EXCLUDE:
+            continue
+        expiry = stream_expiry(url)
+        if expiry is None:
+            old_expiry = str(old.get("stream_expires_local") or "")
+            if old_expiry:
+                try:
+                    expiry = datetime.fromisoformat(old_expiry)
+                except ValueError:
+                    expiry = None
+        if expiry is not None and expiry <= now + timedelta(minutes=10):
+            continue
+        row["stream_status"] = "included"
+        row["stream_url"] = url
+        row["stream_format"] = old.get("stream_format") or "hls"
+        row["stream_height"] = old.get("stream_height") or ""
+        row["stream_expires_local"] = old.get("stream_expires_local") or (
+            iso_local(expiry) if expiry else ""
+        )
+        old_note = str(old.get("notes") or "")
+        row["notes"] = (
+            "source-only: kept previous public URL after the provider API "
+            "returned no fresh link"
+            + (f" ({old_note[:120]})" if old_note else "")
+        )
+        carried += 1
+    return carried
+
+
 SCHEDULE_COLUMNS = [
     "platform", "platform_channel_id", "channel_name", "date", "start_local",
     "end_local", "title", "description", "source_programme_id", "end_estimated",
@@ -1805,9 +1897,21 @@ def main(argv: list[str] | None = None) -> int:
     vtvgo = build_vtvgo()
     mytv = build_mytv()
 
-    for platform, package in [
+    packages = [
         ("tv360", tv360), ("fptplay", fpt), ("htv", htv), ("vtvgo", vtvgo), ("mytv", mytv)
-    ]:
+    ]
+    if SOURCE_ONLY:
+        previous = load_previous_channels()
+        carried = sum(
+            merge_previous_streams(package[0], previous) for _, package in packages
+        )
+        if carried:
+            log(
+                f"Source-only: carried forward {carried} still-valid stream URLs "
+                "from the previous snapshot"
+            )
+
+    for platform, package in packages:
         write_platform_outputs(platform, package[0], package[1])
 
     payload = build_outputs(tv360, fpt, htv, vtvgo, mytv)

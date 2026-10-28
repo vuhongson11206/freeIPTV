@@ -470,7 +470,10 @@ def build_report(payload: dict, coverage: list[dict]) -> str:
             "sweep and a VLC 3.0.24 spot check covered the channels that "
             "previously failed (Ninh Bình, Phú Thọ, Thanh Hóa, Đồng Tháp, Hà "
             "Tĩnh, Sơn La, Tuyên Quang, Cao Bằng, Lào Cai, Vĩnh Long 1, An Giang "
-            "2 and Cà Mau)."
+            "2 and Cà Mau). When the provider API returns no fresh link during "
+            "a full rebuild, a still-valid URL from the previous snapshot is "
+            "carried forward; this keeps the playlist populated but cannot "
+            "extend the token lifetime."
         )
     else:
         lines.append(

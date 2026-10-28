@@ -194,6 +194,14 @@ IP. It does **not** bypass geo-blocking: viewers still connect directly to the
 public CDN from their own network. The SCTV playlist is preserved rather than
 rebuilt, because SCTV verification is also geo-sensitive.
 
+A full rebuild in source-only mode also carries forward a still-valid URL from
+the previous `output/all_platform_data.json` when the provider API returns no
+fresh link. This prevents a US runner from replacing a working playlist with a
+handful of channels. It cannot create new URLs: TV360 tokens last about six
+hours and VTVgo tokens 4-16 hours, so carried-forward entries expire unless a
+machine in Vietnam refreshes them. The workflow still checks the entry count
+before deploying, so an expired snapshot is not published silently.
+
 The Windows wrapper forwards the same flags:
 
 ```powershell
@@ -284,10 +292,13 @@ geo-bypass, and no login/premium/DRM check is skipped.
 
 The trade-off is that CI cannot confirm that a URL currently returns media.
 The host blocklist and expiry checks reduce the risk, but a provider can still
-retire a URL between refreshes. If that becomes a problem, the robust upgrade
-is a small Vietnamese VPS running the normal (non-source-only) refresh; the
-workflow and Vercel deployment stay the same. The project does not depend on
-the user's personal PC.
+retire a URL between refreshes. More importantly, the US runner cannot obtain
+fresh TV360/VTVgo playback URLs at all when those endpoints are geo-blocked;
+carrying the previous URLs forward only postpones their expiry. For unattended
+24/7 freshness, the robust upgrade is a small Vietnamese VPS, either running
+the normal (non-source-only) refresh on a schedule or acting as a self-hosted
+GitHub Actions runner. The workflow and Vercel deployment stay the same. The
+project does not depend on the user's personal PC.
 
 GitHub may pause scheduled workflows after a long period without repository
 activity. Re-enable or manually run the workflow from the Actions tab if that
