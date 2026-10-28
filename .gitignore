@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local extraction caches and logs
+data/
+*.log
+
+# Generated static deployment folder (built by build_public.py / CI)
+public/
+.vercel/
+
+# Unrelated local scratch files
+CpuScan/
+cpuscan_after_pair.png

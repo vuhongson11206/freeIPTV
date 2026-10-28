@@ -1,0 +1,75 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "trailingSlash": false,
+  "git": {
+    "deploymentEnabled": false
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "no-referrer" }
+      ]
+    },
+    {
+      "source": "/all_platform_epg.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=300, s-maxage=300, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/all_free_channels.m3u",
+      "headers": [
+        { "key": "Content-Type", "value": "audio/x-mpegurl; charset=utf-8" },
+        { "key": "Content-Disposition", "value": "inline; filename=\"all_free_channels.m3u\"" },
+        { "key": "Cache-Control", "value": "public, max-age=60, s-maxage=60, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/sctv_free_channels.m3u",
+      "headers": [
+        { "key": "Content-Type", "value": "audio/x-mpegurl; charset=utf-8" },
+        { "key": "Content-Disposition", "value": "inline; filename=\"sctv_free_channels.m3u\"" },
+        { "key": "Cache-Control", "value": "public, max-age=60, s-maxage=60, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/tv360_free_channels.m3u",
+      "headers": [
+        { "key": "Content-Type", "value": "audio/x-mpegurl; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=60, s-maxage=60, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/fptplay_free_channels.m3u",
+      "headers": [
+        { "key": "Content-Type", "value": "audio/x-mpegurl; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=60, s-maxage=60, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/htv_free_channels.m3u",
+      "headers": [
+        { "key": "Content-Type", "value": "audio/x-mpegurl; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=60, s-maxage=60, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/vtvgo_free_channels.m3u",
+      "headers": [
+        { "key": "Content-Type", "value": "audio/x-mpegurl; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=60, s-maxage=60, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/stream_refresh_status.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=60, s-maxage=60, must-revalidate" }
+      ]
+    }
+  ]
+}

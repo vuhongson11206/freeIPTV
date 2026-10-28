@@ -1,0 +1,5 @@
+# Runtime dependencies for the extractors.
+# cryptography is required by multi_extract.py.
+# openpyxl is only needed by sctv_extract.py for its XLSX export.
+cryptography>=46.0.3
+openpyxl>=3.1.5
