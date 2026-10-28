@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 from datetime import datetime, timedelta
@@ -49,6 +50,13 @@ def keep_previous(row: dict, referer: str, reason: str) -> bool:
         return False
     host = (urlsplit(old_url).hostname or "").lower()
     if "stg" in host or host in me.VTVGO_VLC_BLOCKED_HOSTS:
+        return False
+    if host.startswith(("vod-", "lsm-")):
+        return False
+    if (
+        row.get("platform") == "vtvgo"
+        and row.get("name") in me.VTVGO_SOURCE_ONLY_EXCLUDE
+    ):
         return False
     old_expiry = row.get("stream_expires_local") or ""
     if old_expiry:
@@ -147,10 +155,17 @@ def update_sctv_status(result: dict) -> None:
     me.write_json(STATUS_PATH, status)
 
 
-def refresh(skip_sctv: bool = False) -> int:
+def refresh(skip_sctv: bool = False, source_only: bool = False) -> int:
     if not DATA_PATH.exists():
         print(f"Missing {DATA_PATH}; run multi_extract.py first.", file=sys.stderr)
         return 1
+
+    if source_only:
+        me.SOURCE_ONLY = True
+        # SCTV verification is also geo-sensitive.  Keep the checked-in SCTV
+        # playlist instead of replacing it with an empty CI result.
+        skip_sctv = True
+        print("Source-only mode: provider URLs will be kept without media probes.")
 
     started = datetime.now(me.TZ)
     payload = json.loads(DATA_PATH.read_text(encoding="utf-8"))
@@ -326,7 +341,21 @@ def refresh(skip_sctv: bool = False) -> int:
         ],
     }
 
-    if skip_sctv:
+    if source_only:
+        status["mode"] = "source-only"
+        status["source_only_note"] = (
+            "CI runner is outside Vietnam: provider-advertised URLs were kept "
+            "without media probes. FPT Play/HTV short-lived tokens may be stale; "
+            "the combined playlist excludes them. SCTV playlist was preserved."
+        )
+        status["sctv_free_playlist"] = {
+            "status": "preserved",
+            "builder": "build_free_m3u.py",
+            "note": "source-only CI mode: existing SCTV playlist kept",
+        }
+        if SCTV_M3U.exists():
+            status["playlists"].append(str(SCTV_M3U))
+    elif skip_sctv:
         status["sctv_free_playlist"] = {
             "status": "skipped",
             "builder": "build_free_m3u.py",
@@ -357,7 +386,14 @@ def refresh(skip_sctv: bool = False) -> int:
     report_script = BASE_DIR / "multi_report.py"
     if report_script.exists():
         print("Regenerating report, XMLTV and HTML viewer...")
-        completed = subprocess.run([sys.executable, str(report_script)], check=False)
+        report_env = os.environ.copy()
+        if source_only:
+            report_env["IPTV_SOURCE_ONLY"] = "1"
+        completed = subprocess.run(
+            [sys.executable, str(report_script)],
+            check=False,
+            env=report_env,
+        )
         if completed.returncode != 0:
             print("multi_report.py failed", file=sys.stderr)
             return completed.returncode or 1
@@ -381,6 +417,14 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Rebuild only the SCTV free/public playlist.",
     )
+    parser.add_argument(
+        "--source-only",
+        action="store_true",
+        help=(
+            "Keep provider-advertised public URLs without ffprobe media checks. "
+            "Use this on CI runners outside Vietnam; SCTV is preserved."
+        ),
+    )
     args = parser.parse_args(argv)
 
     if args.sctv_only:
@@ -391,7 +435,7 @@ def main(argv: list[str] | None = None) -> int:
             return 0
         return 1
 
-    return refresh(skip_sctv=args.skip_sctv)
+    return refresh(skip_sctv=args.skip_sctv, source_only=args.source_only)
 
 
 if __name__ == "__main__":
