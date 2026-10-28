@@ -27,6 +27,11 @@ jobs:
     env:
       PYTHONIOENCODING: utf-8
       TZ: Asia/Ho_Chi_Minh
+      # GitHub-hosted runners are outside Vietnam.  Keep the provider's
+      # advertised public URLs instead of discarding channels that a US IP
+      # cannot play.  This is not a geo-bypass: viewers still connect directly
+      # to the same public CDNs from their own network.
+      IPTV_SOURCE_ONLY: "1"
 
     steps:
       - name: Check out repository
@@ -55,8 +60,8 @@ jobs:
         if: ${{ github.event.schedule == '30 18 * * *' || (github.event_name == 'workflow_dispatch' && github.event.inputs.full_rebuild == 'true') }}
         run: python multi_extract.py
 
-      - name: Refresh streams and SCTV playlist
-        run: python refresh_multi_playlists.py
+      - name: Refresh streams and preserve SCTV playlist
+        run: python refresh_multi_playlists.py --source-only
 
       - name: Stage public site
         run: python build_public.py
@@ -80,10 +85,33 @@ jobs:
           assert m3u.startswith("#EXTM3U"), "combined M3U header is missing"
           entries = m3u.count("#EXTINF")
           print(f"Combined M3U: {entries} entries")
-          assert entries > 0, "combined M3U is empty"
+          assert entries >= 100, (
+              f"combined M3U has only {entries} entries; source-only extraction "
+              "probably failed"
+          )
+
+          blocked = (
+              "vtvgolive-liveh34",
+              "vtvgolive-liveh12",
+              "vtvgolive-ott3",
+              "vtvgolive-vtclc",
+              "vod-",
+              "lsm-",
+          )
+          found = [host for host in blocked if host in m3u]
+          assert not found, f"blocked hosts survived in combined M3U: {found}"
 
           status = json.loads((out / "stream_refresh_status.json").read_text(encoding="utf-8"))
           print(json.dumps(status, ensure_ascii=False, indent=2))
+          assert status.get("mode") == "source-only", "status does not record source-only mode"
+          assert status.get("combined_playlist_entries", 0) >= 100, (
+              "status reports too few combined entries"
+          )
+
+          sctv = (out / "sctv_free_channels.m3u").read_text(encoding="utf-8")
+          sctv_entries = sctv.count("#EXTINF")
+          print(f"SCTV M3U: {sctv_entries} entries")
+          assert sctv_entries > 0, "SCTV playlist is empty"
           PY
 
       - name: Check Vercel configuration
