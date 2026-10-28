@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import re
 import sys
 from collections import Counter, defaultdict
@@ -24,6 +25,19 @@ HTML_PATH = OUTPUT_DIR / "all_platform_schedule.html"
 COVERAGE_PATH = OUTPUT_DIR / "platform_coverage.csv"
 UNIQUE_PATH = OUTPUT_DIR / "unique_channels.csv"
 XMLTV_PATH = OUTPUT_DIR / "all_platform_epg.xml"
+STATUS_PATH = OUTPUT_DIR / "stream_refresh_status.json"
+
+
+def source_only_mode() -> bool:
+    """Return True when streams were kept without a media probe."""
+    env = os.environ.get("IPTV_SOURCE_ONLY", "").strip().lower()
+    if env in {"1", "true", "yes", "on"}:
+        return True
+    try:
+        status = json.loads(STATUS_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return False
+    return status.get("mode") == "source-only"
 
 LABELS = {
     "tv360": "TV360",
@@ -131,6 +145,7 @@ def build_unique_channels(payload: dict) -> list[dict]:
 
 
 def build_report(payload: dict, coverage: list[dict]) -> str:
+    source_only = source_only_mode()
     channels = payload["channels"]
     schedules = payload["schedules"]
     summary = payload["summary"]
@@ -144,7 +159,11 @@ def build_report(payload: dict, coverage: list[dict]) -> str:
         day_counts[item["platform"]][item["date"]] += 1
 
     status_labels = {
-        "included": "Included in M3U (verified)",
+        "included": (
+            "Included in M3U (source-only)"
+            if source_only
+            else "Included in M3U (verified)"
+        ),
         "excluded_login": "Excluded: login required",
         "excluded_paid": "Excluded: paid/premium",
         "excluded_drm": "Excluded: DRM",
@@ -186,12 +205,21 @@ def build_report(payload: dict, coverage: list[dict]) -> str:
         f"**{DATES[0]} through {DATES[-1]}** (`Asia/Ho_Chi_Minh`, UTC+7)."
     )
     lines.append("")
-    lines.append(
-        f"The combined playlist contains **{combined} deduplicated free channels**; "
-        f"**{summary['included_streams']} platform streams** passed an ffprobe "
-        f"audio/video check. Only public, non-DRM streams are included. No login, "
-        f"subscription, paywall or DRM bypass is used."
-    )
+    if source_only:
+        lines.append(
+            f"The combined playlist contains **{combined} deduplicated free channels**; "
+            f"**{summary['included_streams']} platform streams** were kept from the "
+            f"providers' public playback APIs (source-only mode; no media probe from "
+            f"the CI runner). Only public, non-DRM streams are included. No login, "
+            f"subscription, paywall or DRM bypass is used."
+        )
+    else:
+        lines.append(
+            f"The combined playlist contains **{combined} deduplicated free channels**; "
+            f"**{summary['included_streams']} platform streams** passed an ffprobe "
+            f"audio/video check. Only public, non-DRM streams are included. No login, "
+            f"subscription, paywall or DRM bypass is used."
+        )
     lines.append("")
     lines.append(f"Generated: `{payload['generated_at']}`")
     lines.append("")
@@ -199,7 +227,8 @@ def build_report(payload: dict, coverage: list[dict]) -> str:
     lines.append("## Coverage by platform")
     lines.append("")
     day_labels = [f"EPG {d[8:10]}/{d[5:7]}" for d in DATES]
-    headers = ["Platform", "Listed", *day_labels, f"{len(DATES)}/{len(DATES)} days", "Streams verified", "M3U source"]
+    stream_header = "Streams included" if source_only else "Streams verified"
+    headers = ["Platform", "Listed", *day_labels, f"{len(DATES)}/{len(DATES)} days", stream_header, "M3U source"]
     lines.append("| " + " | ".join(headers) + " |")
     lines.append("|" + "|".join(["---"] + ["---:"] * (len(headers) - 1)) + "|")
     for platform in ORDER:
@@ -258,8 +287,13 @@ def build_report(payload: dict, coverage: list[dict]) -> str:
     lines.append("")
     lines.append("| File | Entries | Notes |")
     lines.append("|---|---:|---|")
+    combined_note = (
+        "Combined, one longest-lived public stream per normalized channel name"
+        if source_only
+        else "Combined, one longest-lived verified public stream per normalized channel name"
+    )
     lines.append(
-        f"| `output/all_free_channels.m3u` | {combined} | Combined, one longest-lived verified public stream per normalized channel name |"
+        f"| `output/all_free_channels.m3u` | {combined} | {combined_note} |"
     )
     for platform in ORDER:
         count = sum(1 for ch in by_platform.get(platform, []) if ch.get("stream_status") == "included")
@@ -289,9 +323,10 @@ def build_report(payload: dict, coverage: list[dict]) -> str:
         for platform in ORDER
         if combined_platforms.get(platform)
     ) or "no entries"
+    source_word = "public" if source_only else "verified public"
     lines.append(
         f"The combined playlist contains {combined_desc} in this snapshot. It "
-        "prefers one verified public stream per normalized channel name and the "
+        f"prefers one {source_word} stream per normalized channel name and the "
         "longest remaining token. Very short-lived FPT Play and HTV7/HTV4 tokens "
         "are kept only in their per-platform playlists; HTV7, HTV4 and HTV9 may "
         "still appear in the combined list through TV360's longer-lived tokens. "
@@ -363,38 +398,57 @@ def build_report(payload: dict, coverage: list[dict]) -> str:
         "- **TV360** - channel catalogue from the public `tv360.vn/tv` page; 3-day "
         "EPG from `get-live-schedule`; free streams from `composite/get-link`. "
         "The CDN rotates between `fo-hlc`, `rr1-ateme`, `livestream` and VOD-style "
-        "hosts; each URL is probed and retried before inclusion."
+        "hosts; "
+        + (
+            "VOD hosts are excluded and the live URL is kept after expiry/host checks."
+            if source_only
+            else "each URL is probed and retried before inclusion."
+        )
     )
     lines.append(
         f"- **FPT Play** - {len(fpt_rows)} EPG channels from the signed public "
         "`api.fptplay.net` endpoints. Although many channels have `is_vip=0`, only "
-        f"{fpt_included} returned a public, playable HLS stream in this snapshot; "
-        "the rest remain in the EPG dataset but not in the M3U. The playable FPT "
+        f"{fpt_included} "
+        + (
+            "had a public HLS URL kept in this snapshot; "
+            if source_only
+            else "returned a public, playable HLS stream in this snapshot; "
+        )
+        + "the rest remain in the EPG dataset but not in the M3U. The playable FPT "
         "URLs expire in about 2-3 minutes, so they are kept in "
         "`fptplay_free_channels.m3u` but not in the combined playlist."
     )
     lines.append(
         f"- **HTV** - {len(htv_rows)} channels listed on `htv.vn/truc-tuyen.htm` "
-        f"(HTV9, HTV7, HTV4); {htv_included} have verified public HLS. HTV9 uses "
+        f"(HTV9, HTV7, HTV4); {htv_included} have "
+        + ("public HLS. " if source_only else "verified public HLS. ")
+        + "HTV9 uses "
         "the HTVm share endpoint with an HMAC timestamp; HTV7/HTV4 use the public "
         "HTVC iframe JWPlayer URL. HTV7/HTV4 JWTs expire in about 10 minutes, so "
         "the combined playlist prefers their TV360 equivalents."
     )
+    vtvgo_source_note = (
+        "The provider's alternate hosts are ranked and known-bad VLC hosts are skipped."
+        if source_only
+        else "Every advertised HLS source for a channel is probed and the first "
+        "working one is kept, so a broken primary CDN can fall back to the "
+        "provider's backup."
+    )
     lines.append(
         f"- **VTVgo** - {len(vtvgo_rows)} unique catalogue channels, "
-        f"{vtvgo_public} not requiring login and {vtvgo_included} with a verified "
-        f"stream. EPG follows the same {len(DATES)}-day window; the third day can "
+        f"{vtvgo_public} not requiring login and {vtvgo_included} with a "
+        + ("public stream. " if source_only else "verified stream. ")
+        + f"EPG follows the same {len(DATES)}-day window; the third day can "
         "be partial while the provider publishes it. Playback is requested only "
         "for anonymous channels and only `sourceModes[0].isVip=0` clear HLS is "
-        "kept. Every advertised HLS source for a channel is probed and the first "
-        "working one is kept, so a broken primary CDN can fall back to the "
-        "provider's backup. The seven `VTVgo · ...` theme channels use "
+        f"kept. {vtvgo_source_note} The seven `VTVgo · ...` theme channels use "
         "`fast-channel-stg.vtvdigital.vn`, a staging host rather than the "
         "production CDN. Two full VLC sweeps opened 0/7 and 4/7 of them, so they "
         "are unreliable; they stay in the EPG dataset but are excluded from the "
-        "playlists. The `vtvgolive-ott3.vtvdigital.vn` host fails the TLS "
-        "handshake in VLC and is blocked for playlists; Hà Tĩnh uses a verified "
-        "public fallback CDN, while Gia Lai has no alternative and is EPG-only."
+        "playlists. The `vtvgolive-ott3`, `liveh34`, `liveh12` and `vtclc` hosts "
+        "fail the TLS handshake in VLC and are blocked for playlists; provincial "
+        "channels use the broadcasters' own public CDNs, Hà Tĩnh uses a verified "
+        "public fallback, and Gia Lai has no alternative and is EPG-only."
     )
     lines.append(
         f"- **MyTV** - {len(mytv_rows)} EPG channels. Every tested anonymous "
@@ -408,12 +462,23 @@ def build_report(payload: dict, coverage: list[dict]) -> str:
 
     lines.append("## Verification")
     lines.append("")
-    lines.append(
-        "Streams are probed with `ffprobe` during extraction and refresh. The "
-        "initial snapshot was also checked in VLC 3.0.21 with the dummy "
-        "video/audio output; that manual sweep covered the TV360 and VTVgo "
-        "entries in the combined playlist at the time."
-    )
+    if source_only:
+        lines.append(
+            "This run used source-only mode: the provider's public URL was kept "
+            "after the free/non-DRM, expiry and VLC-host checks, without an "
+            "`ffprobe` media probe from the CI runner. A full local `ffprobe` "
+            "sweep and a VLC 3.0.24 spot check covered the channels that "
+            "previously failed (Ninh Bình, Phú Thọ, Thanh Hóa, Đồng Tháp, Hà "
+            "Tĩnh, Sơn La, Tuyên Quang, Cao Bằng, Lào Cai, Vĩnh Long 1, An Giang "
+            "2 and Cà Mau)."
+        )
+    else:
+        lines.append(
+            "Streams are probed with `ffprobe` during extraction and refresh. The "
+            "initial snapshot was also checked in VLC 3.0.21 with the dummy "
+            "video/audio output; that manual sweep covered the TV360 and VTVgo "
+            "entries in the combined playlist at the time."
+        )
     lines.append(
         f"- Current combined playlist: **{combined}** entries ("
         + ", ".join(
@@ -443,7 +508,12 @@ def build_report(payload: dict, coverage: list[dict]) -> str:
     lines.append(f"| `output/{'{platform}'}_channels.csv` | Per-platform channel metadata |")
     lines.append(f"| `output/{'{platform}'}_schedule_3days.csv` | Per-platform schedule rows |")
     lines.append(f"| `output/{'{platform}'}_free_channels.json` | Per-platform stream/probe details |")
-    lines.append("| `output/sctv_free_channels.m3u` | SCTV free/public playlist, refreshed by the same command |")
+    sctv_note = (
+        "SCTV free/public playlist, preserved in source-only mode"
+        if source_only
+        else "SCTV free/public playlist, refreshed by the same command"
+    )
+    lines.append(f"| `output/sctv_free_channels.m3u` | {sctv_note} |")
     lines.append("| `output/stream_refresh_status.json` | Last refresh time, counts and expiry range |")
     lines.append("")
 
@@ -455,10 +525,14 @@ def build_report(payload: dict, coverage: list[dict]) -> str:
     lines.append("python refresh_multi_playlists.py")
     lines.append("```")
     lines.append("")
+    refresh_verb = (
+        "re-read from the provider APIs" if source_only else "re-probed"
+    )
     lines.append(
-        "The EPG snapshot is kept; stream URLs are re-probed and the per-platform "
-        "and combined M3Us, XMLTV, HTML viewer, report and SCTV playlist are "
-        "rebuilt. Use `--skip-sctv` to refresh only the multi-platform outputs or "
+        f"The EPG snapshot is kept; stream URLs are {refresh_verb} and the "
+        "per-platform and combined M3Us, XMLTV, HTML viewer and report are "
+        "rebuilt. Use `--source-only` on a CI runner outside Vietnam, "
+        "`--skip-sctv` to refresh only the multi-platform outputs, or "
         "`--sctv-only` to rebuild only the SCTV playlist."
     )
     lines.append("")
@@ -484,13 +558,23 @@ def build_report(payload: dict, coverage: list[dict]) -> str:
 
     lines.append("## Method and compliance")
     lines.append("")
-    lines.append(
-        "The extractor calls the same public, anonymous endpoints used by the "
-        "providers' web players. It does not log in, purchase entitlements, bypass "
-        "geo/paywall checks, decrypt protected media or remove DRM. A channel is "
-        "included only when the public endpoint returns a clear HLS URL and ffprobe "
-        "successfully decodes a video stream."
-    )
+    if source_only:
+        lines.append(
+            "The extractor calls the same public, anonymous endpoints used by the "
+            "providers' web players. It does not log in, purchase entitlements, "
+            "bypass geo/paywall checks, decrypt protected media or remove DRM. A "
+            "channel is included only when the public endpoint returns a clear, "
+            "non-DRM HLS URL; source-only mode skips the media probe because the "
+            "CI runner is outside Vietnam."
+        )
+    else:
+        lines.append(
+            "The extractor calls the same public, anonymous endpoints used by the "
+            "providers' web players. It does not log in, purchase entitlements, "
+            "bypass geo/paywall checks, decrypt protected media or remove DRM. A "
+            "channel is included only when the public endpoint returns a clear HLS "
+            "URL and ffprobe successfully decodes a video stream."
+        )
     lines.append("")
     lines.append(
         "EPG rows are kept as returned by each source. HTV and MyTV publish start "
