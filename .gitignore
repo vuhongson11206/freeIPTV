@@ -15,3 +15,5 @@ public/
 # Unrelated local scratch files
 CpuScan/
 cpuscan_after_pair.png
+*.zip
+vietnamese-tv-epg-upload/
