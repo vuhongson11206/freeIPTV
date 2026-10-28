@@ -1,0 +1,129 @@
+name: Refresh playlists and deploy
+
+on:
+  schedule:
+    # Refresh stream URLs every 3 hours.
+    - cron: "15 */3 * * *"
+    # Full 3-day EPG rebuild daily at 01:30 Asia/Ho_Chi_Minh (18:30 UTC).
+    - cron: "30 18 * * *"
+  workflow_dispatch:
+    inputs:
+      full_rebuild:
+        description: "Re-extract the 3-day EPG before refreshing streams"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: refresh-playlists
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      PYTHONIOENCODING: utf-8
+      TZ: Asia/Ho_Chi_Minh
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Ensure ffmpeg and ffprobe
+        run: |
+          if ! command -v ffprobe >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
+          ffprobe -version | head -n 1
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Full EPG rebuild
+        if: ${{ github.event.schedule == '30 18 * * *' || (github.event_name == 'workflow_dispatch' && github.event.inputs.full_rebuild == 'true') }}
+        run: python multi_extract.py
+
+      - name: Refresh streams and SCTV playlist
+        run: python refresh_multi_playlists.py
+
+      - name: Stage public site
+        run: python build_public.py
+
+      - name: Validate generated files
+        run: |
+          python - <<'PY'
+          import json
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          out = Path("output")
+          root = ET.parse(out / "all_platform_epg.xml").getroot()
+          channels = root.findall("channel")
+          programmes = root.findall("programme")
+          print(f"XMLTV: {len(channels)} channels / {len(programmes):,} programmes")
+          assert channels, "XMLTV has no channels"
+          assert programmes, "XMLTV has no programmes"
+
+          m3u = (out / "all_free_channels.m3u").read_text(encoding="utf-8")
+          assert m3u.startswith("#EXTM3U"), "combined M3U header is missing"
+          entries = m3u.count("#EXTINF")
+          print(f"Combined M3U: {entries} entries")
+          assert entries > 0, "combined M3U is empty"
+
+          status = json.loads((out / "stream_refresh_status.json").read_text(encoding="utf-8"))
+          print(json.dumps(status, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Check Vercel configuration
+        id: vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          if [ -n "$VERCEL_TOKEN" ] && [ -n "$VERCEL_ORG_ID" ] && [ -n "$VERCEL_PROJECT_ID" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Vercel secrets are not configured; skipping deployment."
+          fi
+
+      - name: Deploy to Vercel
+        if: steps.vercel.outputs.enabled == 'true'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          set -euo pipefail
+          npx --yes vercel@latest deploy ./public --prod --yes --token "$VERCEL_TOKEN" | tee /tmp/vercel-deploy.log
+          url=$(grep -Eo 'https://[^ ]+' /tmp/vercel-deploy.log | tail -n 1 || true)
+          if [ -n "$url" ]; then
+            echo "Deployment URL: $url" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload generated files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-playlists-${{ github.run_number }}
+          path: |
+            output/all_platform_epg.xml
+            output/all_free_channels.m3u
+            output/sctv_free_channels.m3u
+            output/stream_refresh_status.json
+            public/
+          if-no-files-found: warn
+          retention-days: 14
