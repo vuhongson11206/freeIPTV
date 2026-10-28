@@ -1,0 +1,581 @@
+{
+  "generated_at": "2026-10-28T07:30:30+07:00",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "source": "https://sctvonline.vn",
+  "free_channels_total": 15,
+  "verified_live": 11,
+  "vod_only": 4,
+  "unavailable": 0,
+  "channels": [
+    {
+      "name": "VTV1",
+      "slug": "vtv1-hd-72574f3e",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/42_be27f2ac.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh Truyền Hình Thiết Yếu Quốc Gia | Kênh VTV",
+      "is_live_flag": true,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/vtv1-hd-72574f3e",
+      "status": "verified",
+      "status_label": "Verified live",
+      "stream_url": "https://e11.endpoint.cdn.sctvonline.vn/cdn-secure/v1/sctvonline/1/jRgCpgzW3VyoRIGzWDZHcA/1795739377/anonymous/live/vtv1/master.m3u8",
+      "expires_at": "2026-11-27T07:29:37+07:00",
+      "expires_at_display": "2026-11-27 07:29 UTC+07:00",
+      "probe": {
+        "ok": true,
+        "method": "ffprobe",
+        "streams": [
+          {
+            "type": "audio",
+            "codec": "aac",
+            "width": null,
+            "height": null
+          },
+          {
+            "type": "subtitle",
+            "codec": "webvtt",
+            "width": null,
+            "height": null
+          },
+          {
+            "type": "video",
+            "codec": "hevc",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "type": "video",
+            "codec": "hevc",
+            "width": 1024,
+            "height": 576
+          },
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1024,
+            "height": 576
+          }
+        ],
+        "error": null,
+        "format": "hls"
+      }
+    },
+    {
+      "name": "Truyền hình Quốc phòng Việt Nam- QPVN",
+      "slug": "qpvn-fea05134",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/30_96ed2d30.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh Truyền Hình Thiết Yếu Quốc Gia",
+      "is_live_flag": true,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/qpvn-fea05134",
+      "status": "verified",
+      "status_label": "Verified live",
+      "stream_url": "https://e15.endpoint.cdn.sctvonline.vn/cdn-secure/v1/sctvonline/1/d28tT5pEnPCp8jT060wnmA/1795739385/anonymous/live/quocphongvn/master.m3u8",
+      "expires_at": "2026-11-27T07:29:45+07:00",
+      "expires_at_display": "2026-11-27 07:29 UTC+07:00",
+      "probe": {
+        "ok": true,
+        "method": "ffprobe",
+        "streams": [
+          {
+            "type": "audio",
+            "codec": "aac",
+            "width": null,
+            "height": null
+          },
+          {
+            "type": "subtitle",
+            "codec": "webvtt",
+            "width": null,
+            "height": null
+          },
+          {
+            "type": "video",
+            "codec": "hevc",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "type": "video",
+            "codec": "hevc",
+            "width": 1024,
+            "height": 576
+          },
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1024,
+            "height": 576
+          }
+        ],
+        "error": null,
+        "format": "hls"
+      }
+    },
+    {
+      "name": "Truyền hình Công an nhân dân - ANTV",
+      "slug": "antv-1debf072",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/3_460869ce.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh Truyền Hình Thiết Yếu Quốc Gia",
+      "is_live_flag": true,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/antv-1debf072",
+      "status": "verified",
+      "status_label": "Verified live",
+      "stream_url": "https://e8.endpoint.cdn.sctvonline.vn/cdn-secure/v1/sctvonline/2/yWVPZHls9NwCmaZXiM_AuA/1795739393/anonymous/live/hls/antv/index.m3u8",
+      "expires_at": "2026-11-27T07:29:53+07:00",
+      "expires_at_display": "2026-11-27 07:29 UTC+07:00",
+      "probe": {
+        "ok": true,
+        "method": "ffprobe",
+        "streams": [
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "type": "audio",
+            "codec": "aac",
+            "width": null,
+            "height": null
+          }
+        ],
+        "error": null,
+        "format": "hls"
+      }
+    },
+    {
+      "name": "VTV5-Truyền hình dân tộc",
+      "slug": "vtv5-truyen-hinh-dan-toc",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/vtv5_577bcf6b.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh Truyền Hình Thiết Yếu Quốc Gia | Kênh VTV",
+      "is_live_flag": true,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/vtv5-truyen-hinh-dan-toc",
+      "status": "verified",
+      "status_label": "Verified live",
+      "stream_url": "https://e10.endpoint.cdn.sctvonline.vn/cdn-secure/v1/sctvonline/1/J2etFtMR4CYvZpZwhTDz8Q/1795739395/anonymous/live/vtv5/master.m3u8",
+      "expires_at": "2026-11-27T07:29:55+07:00",
+      "expires_at_display": "2026-11-27 07:29 UTC+07:00",
+      "probe": {
+        "ok": true,
+        "method": "ffprobe",
+        "streams": [
+          {
+            "type": "audio",
+            "codec": "aac",
+            "width": null,
+            "height": null
+          },
+          {
+            "type": "subtitle",
+            "codec": "webvtt",
+            "width": null,
+            "height": null
+          },
+          {
+            "type": "video",
+            "codec": "hevc",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "type": "video",
+            "codec": "hevc",
+            "width": 1024,
+            "height": 576
+          },
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1024,
+            "height": 576
+          }
+        ],
+        "error": null,
+        "format": "hls"
+      }
+    },
+    {
+      "name": "Kênh truyền hình đối ngoại quốc gia - Vietnam Today",
+      "slug": "kenh-truyen-hinh-doi-ngoai-quoc-gia-vietnam-today",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/vietnam-today_452e998d.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh Truyền Hình Thiết Yếu Quốc Gia | Kênh VTV",
+      "is_live_flag": true,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/kenh-truyen-hinh-doi-ngoai-quoc-gia-vietnam-today",
+      "status": "verified",
+      "status_label": "Verified live",
+      "stream_url": "https://e8.endpoint.cdn.sctvonline.vn/cdn-secure/v1/sctvonline/2/-bXStkB26U1N11Z8CA96AQ/1795739401/anonymous/live/hls/vntoday/index.m3u8",
+      "expires_at": "2026-11-27T07:30:01+07:00",
+      "expires_at_display": "2026-11-27 07:30 UTC+07:00",
+      "probe": {
+        "ok": true,
+        "method": "ffprobe",
+        "streams": [
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "type": "audio",
+            "codec": "aac",
+            "width": null,
+            "height": null
+          }
+        ],
+        "error": null,
+        "format": "hls"
+      }
+    },
+    {
+      "name": "THỂ THAO 24/7",
+      "slug": "the-thao-24-7",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/thethao24-7_269a3bc6.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh SCTV",
+      "is_live_flag": false,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/the-thao-24-7",
+      "status": "vod_only",
+      "status_label": "Free VOD channel - no linear stream",
+      "stream_url": null,
+      "expires_at": null,
+      "expires_at_display": null,
+      "probe": null,
+      "error": "Chương trình này không có link play. Xin thử lại"
+    },
+    {
+      "name": "Việt Nam 360",
+      "slug": "viet-nam-360",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/vietnam360_86a44020.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh SCTV",
+      "is_live_flag": false,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/viet-nam-360",
+      "status": "vod_only",
+      "status_label": "Free VOD channel - no linear stream",
+      "stream_url": null,
+      "expires_at": null,
+      "expires_at_display": null,
+      "probe": null,
+      "error": "Chương trình này không có link play. Xin thử lại"
+    },
+    {
+      "name": "PHIM VIỆT 24/7",
+      "slug": "man-anh-viet",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/phimviet24-7_1d7d9431.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh SCTV",
+      "is_live_flag": false,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/man-anh-viet",
+      "status": "vod_only",
+      "status_label": "Free VOD channel - no linear stream",
+      "stream_url": null,
+      "expires_at": null,
+      "expires_at_display": null,
+      "probe": null,
+      "error": "Chương trình này không có link play. Xin thử lại"
+    },
+    {
+      "name": "VŨ TRỤ HÀI",
+      "slug": "cuoi-lien-luc-dia",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/vutruhai_7308e691.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh SCTV",
+      "is_live_flag": false,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/cuoi-lien-luc-dia",
+      "status": "vod_only",
+      "status_label": "Free VOD channel - no linear stream",
+      "stream_url": null,
+      "expires_at": null,
+      "expires_at_display": null,
+      "probe": null,
+      "error": "Chương trình này không có link play. Xin thử lại"
+    },
+    {
+      "name": "HTV7",
+      "slug": "htv7-96634500",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/23_456a2667.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh Địa Phương",
+      "is_live_flag": true,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/htv7-96634500",
+      "status": "verified",
+      "status_label": "Verified live",
+      "stream_url": "https://e2.endpoint.cdn.sctvonline.vn/cdn-secure/v1/sctvonline/2/Ly2qPv2UHW-q58qK2FO_5w/1795739405/anonymous/live/abr_hls/htv7/master.m3u8",
+      "expires_at": "2026-11-27T07:30:05+07:00",
+      "expires_at_display": "2026-11-27 07:30 UTC+07:00",
+      "probe": {
+        "ok": true,
+        "method": "ffprobe",
+        "streams": [
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "type": "audio",
+            "codec": "aac",
+            "width": null,
+            "height": null
+          },
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 640,
+            "height": 360
+          },
+          {
+            "type": "audio",
+            "codec": "aac",
+            "width": null,
+            "height": null
+          }
+        ],
+        "error": null,
+        "format": "hls"
+      }
+    },
+    {
+      "name": "Truyền hình Đồng Tháp 1",
+      "slug": "th-dong-thap-1-8f098772",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/32_cd523a7e.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh Địa Phương",
+      "is_live_flag": true,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/th-dong-thap-1-8f098772",
+      "status": "verified",
+      "status_label": "Verified live",
+      "stream_url": "https://e15.endpoint.cdn.sctvonline.vn/cdn-secure/v1/sctvonline/1/1btOKWn9s8CEDQEZUIo0UQ/1795739408/anonymous/live/thdt1/master.m3u8",
+      "expires_at": "2026-11-27T07:30:08+07:00",
+      "expires_at_display": "2026-11-27 07:30 UTC+07:00",
+      "probe": {
+        "ok": true,
+        "method": "ffprobe",
+        "streams": [
+          {
+            "type": "audio",
+            "codec": "aac",
+            "width": null,
+            "height": null
+          },
+          {
+            "type": "subtitle",
+            "codec": "webvtt",
+            "width": null,
+            "height": null
+          },
+          {
+            "type": "video",
+            "codec": "hevc",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "type": "video",
+            "codec": "hevc",
+            "width": 1024,
+            "height": 576
+          },
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1024,
+            "height": 576
+          }
+        ],
+        "error": null,
+        "format": "hls"
+      }
+    },
+    {
+      "name": "Đài Phát thanh và Truyền hình Đắk Lắk",
+      "slug": "dai-phat-thanh-va-truyen-hinh-dak-lak",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/drt-hd_37a18224.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh Địa Phương",
+      "is_live_flag": true,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/dai-phat-thanh-va-truyen-hinh-dak-lak",
+      "status": "verified",
+      "status_label": "Verified live",
+      "stream_url": "https://e8.endpoint.cdn.sctvonline.vn/cdn-secure/v1/sctvonline/2/nKwnL1ewnvNfeP3_9Fjh_w/1795739414/anonymous/live/hls/thdaklak/index.m3u8",
+      "expires_at": "2026-11-27T07:30:14+07:00",
+      "expires_at_display": "2026-11-27 07:30 UTC+07:00",
+      "probe": {
+        "ok": true,
+        "method": "ffprobe",
+        "streams": [
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "type": "audio",
+            "codec": "aac",
+            "width": null,
+            "height": null
+          }
+        ],
+        "error": null,
+        "format": "hls"
+      }
+    },
+    {
+      "name": "Đài PT-TH CÀ MAU",
+      "slug": "dai-pt-th-ca-mau",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/logo-dai-ca-mau_bce42e7b.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh Địa Phương",
+      "is_live_flag": true,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/dai-pt-th-ca-mau",
+      "status": "verified",
+      "status_label": "Verified live",
+      "stream_url": "https://e8.endpoint.cdn.sctvonline.vn/cdn-secure/v1/sctvonline/2/rcmvcAy4t5E_w0HyRiF3FA/1793579416/anonymous/live:fingerprint/hls/thcamau/index.m3u8",
+      "expires_at": "2026-11-02T07:30:16+07:00",
+      "expires_at_display": "2026-11-02 07:30 UTC+07:00",
+      "probe": {
+        "ok": true,
+        "method": "ffprobe",
+        "streams": [
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1024,
+            "height": 576
+          },
+          {
+            "type": "audio",
+            "codec": "aac",
+            "width": null,
+            "height": null
+          }
+        ],
+        "error": null,
+        "format": "hls"
+      }
+    },
+    {
+      "name": "Truyền hình An Giang",
+      "slug": "th-an-giang-e2b64bbf",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/35_3d58ad43.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh Địa Phương",
+      "is_live_flag": true,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/th-an-giang-e2b64bbf",
+      "status": "verified",
+      "status_label": "Verified live",
+      "stream_url": "https://e3.endpoint.cdn.sctvonline.vn/cdn-secure/v1/sctvonline/2/CtVPRQAz_zHGFd9exwsvcQ/1795739422/anonymous/live/hls/angiang/index.m3u8",
+      "expires_at": "2026-11-27T07:30:22+07:00",
+      "expires_at_display": "2026-11-27 07:30 UTC+07:00",
+      "probe": {
+        "ok": true,
+        "method": "ffprobe",
+        "streams": [
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1024,
+            "height": 576
+          },
+          {
+            "type": "audio",
+            "codec": "aac",
+            "width": null,
+            "height": null
+          }
+        ],
+        "error": null,
+        "format": "hls"
+      }
+    },
+    {
+      "name": "VTVcab - ON KIDS",
+      "slug": "vtvcab-on-kids",
+      "logo": "https://imaginary.endpoint.cdn.sctvonline.vn/tenants/none_tenant/photos/on-kids_9311eed6.jpg?width=426&version=10&type=auto&s3_origin=https%3A%2F%2Fsctv-main-2.s3-hcm.cloud.cmctelecom.vn",
+      "categories": "Kênh VTVcab",
+      "is_live_flag": true,
+      "is_premium": "no",
+      "detail_url": "https://sctvonline.vn/detail/vtvcab-on-kids",
+      "status": "verified",
+      "status_label": "Verified live",
+      "stream_url": "https://e10.endpoint.cdn.sctvonline.vn/cdn-secure/v1/sctvonline/1/W3Fc7s5Bw6huC389npyy7g/1795739423/anonymous/live/vtvcab21/master.m3u8",
+      "expires_at": "2026-11-27T07:30:23+07:00",
+      "expires_at_display": "2026-11-27 07:30 UTC+07:00",
+      "probe": {
+        "ok": true,
+        "method": "ffprobe",
+        "streams": [
+          {
+            "type": "audio",
+            "codec": "aac",
+            "width": null,
+            "height": null
+          },
+          {
+            "type": "subtitle",
+            "codec": "webvtt",
+            "width": null,
+            "height": null
+          },
+          {
+            "type": "video",
+            "codec": "hevc",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "type": "video",
+            "codec": "hevc",
+            "width": 1024,
+            "height": 576
+          },
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "type": "video",
+            "codec": "h264",
+            "width": 1024,
+            "height": 576
+          }
+        ],
+        "error": null,
+        "format": "hls"
+      }
+    }
+  ]
+}

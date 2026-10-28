@@ -1,0 +1,549 @@
+﻿platform,platform_label,platform_channel_id,name,category,epg_days,programmes_2026-10-27,programmes_2026-10-28,programmes_2026-10-29,total_programmes,stream_status,stream_height
+tv360,TV360,10013,360 Anime,Giải trí,3,54,56,57,167,excluded_paid,
+tv360,TV360,10019,360 Bundesliga,Thể thao,3,15,14,17,46,excluded_paid,
+tv360,TV360,10014,360 C1 Châu Âu,Thể thao,3,13,14,13,40,excluded_paid,
+tv360,TV360,10015,360 C2 Châu Âu,Thể thao,3,29,13,12,54,excluded_paid,
+tv360,TV360,10016,360 C3 Châu Âu,Thể thao,3,29,20,34,83,excluded_paid,
+tv360,TV360,10067,360 Châu Tinh Trì,Giải trí,3,14,15,15,44,excluded_no_stream,
+tv360,TV360,10018,360 Công Thức 1,Thể thao,3,16,15,18,49,excluded_paid,
+tv360,TV360,10065,360 Doraemon,Giải trí,3,68,68,67,203,excluded_no_stream,
+tv360,TV360,10020,360 Golf,Thể thao,3,12,13,12,37,excluded_paid,
+tv360,TV360,10008,360 Hoa Ngữ,Giải trí,2,28,27,0,55,excluded_paid,
+tv360,TV360,10011,360 Hài -Tình cảm,Giải trí,3,51,50,50,151,excluded_paid,
+tv360,TV360,10009,360 Hành động Châu Á,Giải trí,3,26,24,25,75,excluded_paid,
+tv360,TV360,10010,360 K-Drama,Giải trí,3,38,41,38,117,excluded_paid,
+tv360,TV360,10064,360 Mr. Bean,Giải trí,3,130,130,130,390,excluded_no_stream,
+tv360,TV360,10055,360 Phim 4K,Giải trí,3,13,14,6,33,excluded_no_stream,
+tv360,TV360,10012,360 Phim Kinh điển,Giải trí,3,31,29,31,91,excluded_paid,
+tv360,TV360,10068,360 Sống khỏe,Giải trí,3,428,428,426,1282,excluded_no_stream,
+tv360,TV360,10021,360 Tennis,Thể thao,3,21,18,23,62,excluded_paid,
+tv360,TV360,10045,360 Thiếu Nhi,Giải trí,3,177,175,151,503,excluded_paid,
+tv360,TV360,10066,360 Thám tử Conan,Giải trí,3,60,60,60,180,excluded_no_stream,
+tv360,TV360,10017,360 Thể Thao Châu Á,Thể thao,3,18,13,14,45,excluded_paid,
+tv360,TV360,283,ABC Australia,Kênh quốc tế,2,32,30,0,62,excluded_login,
+tv360,TV360,215,AFN HD,Kênh quốc tế,2,44,42,0,86,included,1080
+tv360,TV360,20,ANTV,Kênh thiết yếu,2,51,55,0,106,included,1080
+tv360,TV360,281,AXN,Kênh quốc tế,2,28,29,0,57,excluded_login,
+tv360,TV360,66,An Giang 1,Kênh địa phương,2,40,45,0,85,included,1080
+tv360,TV360,35,An Giang 2,Kênh địa phương,2,47,47,0,94,included,1080
+tv360,TV360,151,An Viên HD,Kênh HTV,2,48,50,0,98,included,1080
+tv360,TV360,111,Arirang,Kênh quốc tế,2,53,54,0,107,included,1080
+tv360,TV360,9838,BTV6,Kênh địa phương,2,72,72,0,144,excluded_login,
+tv360,TV360,237,Bloomberg,Kênh quốc tế,2,18,18,0,36,excluded_login,
+tv360,TV360,39,Bắc Ninh,Kênh địa phương,2,59,64,0,123,included,1080
+tv360,TV360,9855,CNBC,Kênh quốc tế,2,43,43,0,86,included,1080
+tv360,TV360,275,CNN,Kênh quốc tế,2,30,30,0,60,excluded_login,
+tv360,TV360,48,Cao Bằng,Kênh địa phương,2,37,38,0,75,included,1080
+tv360,TV360,277,Cartoon,Kênh quốc tế,2,32,32,0,64,excluded_login,
+tv360,TV360,112,Channel News Asia,Kênh quốc tế,2,23,23,0,46,included,1080
+tv360,TV360,159,Cinema World,Kênh quốc tế,2,15,16,0,31,excluded_login,
+tv360,TV360,239,Cinemax,Kênh quốc tế,2,16,15,0,31,excluded_login,
+tv360,TV360,46,Cà Mau,Kênh địa phương,2,52,53,0,105,included,1080
+tv360,TV360,47,Cần Thơ 1,Kênh địa phương,2,50,50,0,100,included,1080
+tv360,TV360,61,Cần Thơ 2,Kênh địa phương,2,42,39,0,81,included,1080
+tv360,TV360,84,Cần Thơ 3,Kênh địa phương,2,31,33,0,64,included,1080
+tv360,TV360,109,DW,Kênh quốc tế,2,73,74,0,147,included,1080
+tv360,TV360,214,DaVinci HD,Kênh quốc tế,2,87,87,0,174,excluded_no_stream,
+tv360,TV360,279,Discovery Channel,Kênh quốc tế,2,25,28,0,53,excluded_login,
+tv360,TV360,235,DreamWorks,Kênh quốc tế,2,63,63,0,126,excluded_login,
+tv360,TV360,9906,FM96,Kênh FM,2,34,34,0,68,included,1080
+tv360,TV360,163,FashionTV,Kênh quốc tế,2,49,49,0,98,excluded_drm,
+tv360,TV360,96,France 24,Kênh quốc tế,2,97,97,0,194,included,1080
+tv360,TV360,10007,France 24 SD,Kênh quốc tế,2,79,79,0,158,included,576
+tv360,TV360,55,Gia Lai,Kênh địa phương,2,36,36,0,72,excluded_no_stream,
+tv360,TV360,271,HBO,Kênh quốc tế,2,14,15,0,29,excluded_login,
+tv360,TV360,99,HGTV,Kênh quốc tế,2,41,47,0,88,excluded_drm,
+tv360,TV360,32,HITV,Kênh địa phương,2,45,48,0,93,excluded_no_stream,
+tv360,TV360,195,HTV Thể Thao,Kênh HTV,2,25,27,0,52,excluded_paid,
+tv360,TV360,190,HTV1,Kênh HTV,2,57,57,0,114,included,1080
+tv360,TV360,191,HTV2,Kênh HTV,2,32,31,0,63,included,1080
+tv360,TV360,192,HTV3,Kênh HTV,2,55,60,0,115,included,1080
+tv360,TV360,9,HTV4,Kênh HTV,2,21,18,0,39,included,1080
+tv360,TV360,193,HTV7 HD,Kênh HTV,2,41,47,0,88,included,1080
+tv360,TV360,194,HTV9 HD,Kênh HTV,2,49,44,0,93,included,1080
+tv360,TV360,133,HTVC du lịch & cuộc sống,Kênh HTV,2,77,73,0,150,included,1080
+tv360,TV360,11,HTVC gia đình,Kênh HTV,2,40,40,0,80,included,1080
+tv360,TV360,15,HTVC phim truyện HD,Kênh HTV,2,18,18,0,36,included,1080
+tv360,TV360,12,HTVC phụ Nữ,Kênh HTV,2,40,44,0,84,included,1080
+tv360,TV360,13,HTVC thuần việt,Kênh HTV,2,46,48,0,94,included,1080
+tv360,TV360,132,HTVC+ Channel B,Kênh HTV,2,98,94,0,192,included,1080
+tv360,TV360,9856,History HD,Kênh quốc tế,2,26,26,0,52,included,1080
+tv360,TV360,9934,Hoạt hình,Giải trí,3,76,77,80,233,excluded_paid,
+tv360,TV360,63,Huế,Kênh địa phương,2,41,39,0,80,included,1080
+tv360,TV360,33,Hà Nội 1,Kênh địa phương,2,69,67,0,136,included,1080
+tv360,TV360,34,Hà Nội 2,Kênh địa phương,2,58,60,0,118,included,1080
+tv360,TV360,58,Hà Tĩnh,Kênh địa phương,2,53,46,0,99,included,1080
+tv360,TV360,64,Hưng Yên,Kênh địa phương,2,41,40,0,81,included,1080
+tv360,TV360,60,Hải Phòng,Kênh địa phương,2,55,56,0,111,included,1080
+tv360,TV360,59,Hải Phòng 3,Kênh địa phương,2,37,30,0,67,included,1080
+tv360,TV360,213,KBS World,Kênh quốc tế,2,32,29,0,61,included,1080
+tv360,TV360,65,Khánh Hòa,Kênh địa phương,2,47,38,0,85,included,1080
+tv360,TV360,76,Khánh Hòa 1,Kênh địa phương,2,45,40,0,85,included,1080
+tv360,TV360,9901,Kix,Kênh quốc tế,2,16,16,0,32,included,1080
+tv360,TV360,68,Lai Châu,Kênh địa phương,2,51,46,0,97,included,1080
+tv360,TV360,9965,Livestream 01,Sự kiện trực tiếp,0,0,0,0,0,included,1080
+tv360,TV360,71,Lào Cai,Kênh địa phương,2,52,51,0,103,included,1080
+tv360,TV360,69,Lâm Đồng 1,Kênh địa phương,2,50,48,0,98,included,1080
+tv360,TV360,45,Lâm Đồng 2,Kênh địa phương,2,45,45,0,90,included,1080
+tv360,TV360,70,Lạng Sơn,Kênh địa phương,2,70,64,0,134,included,1080
+tv360,TV360,106,NHK,Kênh quốc tế,2,67,59,0,126,included,1080
+tv360,TV360,74,Nghệ An,Kênh địa phương,2,57,58,0,115,included,1080
+tv360,TV360,75,Ninh Bình,Kênh địa phương,2,46,46,0,92,included,1080
+tv360,TV360,136,O2TV,Kênh VTV Cab,2,51,48,0,99,included,1080
+tv360,TV360,216,Outdoor HD,Kênh quốc tế,2,34,39,0,73,included,1080
+tv360,TV360,9902,Phim Việt,Giải trí,3,50,52,33,135,excluded_paid,
+tv360,TV360,9903,Phim Âu Mỹ,Giải trí,3,13,13,2,28,excluded_paid,
+tv360,TV360,77,Phú Thọ,Kênh địa phương,2,84,81,0,165,included,1080
+tv360,TV360,19,QPVN HD,Kênh thiết yếu,2,53,52,0,105,included,1080
+tv360,TV360,81,Quảng Ngãi,Kênh địa phương,2,50,50,0,100,included,1080
+tv360,TV360,82,Quảng Ninh 1,Kênh địa phương,2,84,82,0,166,included,1080
+tv360,TV360,134,Quảng Ninh 3,Kênh địa phương,2,81,78,0,159,included,1080
+tv360,TV360,83,Quảng Trị,Kênh địa phương,2,43,36,0,79,included,1080
+tv360,TV360,201,SCTV2 - Today TV,Kênh SCTV,2,30,30,0,60,included,1080
+tv360,TV360,232,SCTV6,Kênh SCTV,2,30,30,0,60,included,1080
+tv360,TV360,85,Sơn La,Kênh địa phương,2,47,46,0,93,included,1080
+tv360,TV360,9904,TV360,Sự kiện trực tiếp,0,0,0,0,0,excluded_login,
+tv360,TV360,2554,TV360+ 1,Sự kiện trực tiếp,2,2,2,0,4,excluded_drm,
+tv360,TV360,9957,TV360+ 10,Sự kiện trực tiếp,2,4,6,0,10,excluded_login,
+tv360,TV360,9958,TV360+ 11,Sự kiện trực tiếp,2,3,2,0,5,excluded_paid,
+tv360,TV360,10001,TV360+ 12,Sự kiện trực tiếp,2,1,1,0,2,excluded_drm,
+tv360,TV360,10022,TV360+ 13,Sự kiện trực tiếp,2,2,2,0,4,excluded_drm,
+tv360,TV360,10023,TV360+ 14,Sự kiện trực tiếp,2,1,2,0,3,excluded_drm,
+tv360,TV360,10024,TV360+ 15,Sự kiện trực tiếp,2,1,1,0,2,excluded_drm,
+tv360,TV360,1,TV360+ 2,Sự kiện trực tiếp,2,2,2,0,4,excluded_drm,
+tv360,TV360,148,TV360+ 3,Sự kiện trực tiếp,2,1,1,0,2,excluded_drm,
+tv360,TV360,2458,TV360+ 4,Sự kiện trực tiếp,2,3,4,0,7,excluded_drm,
+tv360,TV360,9867,TV360+ 5,Sự kiện trực tiếp,2,4,4,0,8,excluded_drm,
+tv360,TV360,9868,TV360+ 6,Sự kiện trực tiếp,2,4,6,0,10,excluded_drm,
+tv360,TV360,9869,TV360+ 7,Sự kiện trực tiếp,2,4,6,0,10,excluded_drm,
+tv360,TV360,9870,TV360+ 8,Sự kiện trực tiếp,2,6,5,0,11,excluded_drm,
+tv360,TV360,9887,TV360+ 9,Sự kiện trực tiếp,2,2,1,0,3,excluded_paid,
+tv360,TV360,9852,TV5,Kênh quốc tế,2,45,46,0,91,included,1080
+tv360,TV360,89,Thanh Hóa,Kênh địa phương,2,61,72,0,133,included,1080
+tv360,TV360,88,Thái Nguyên,Kênh địa phương,2,71,68,0,139,included,1080
+tv360,TV360,92,Tuyên Quang,Kênh địa phương,2,74,74,0,148,included,1080
+tv360,TV360,72,Tây Ninh 1,Kênh địa phương,2,62,61,0,123,included,1080
+tv360,TV360,9951,VIETNAM TODAY HD,Kênh thiết yếu,2,74,74,0,148,included,1080
+tv360,TV360,10036,VOH AM610,Kênh FM,2,47,44,0,91,included,1080
+tv360,TV360,10038,VOH FM87,Kênh FM,2,32,36,0,68,included,1080
+tv360,TV360,10040,VOH FM92 Radio,Kênh FM,2,42,31,0,73,included,1080
+tv360,TV360,10039,VOH FM95,Kênh FM,2,14,14,0,28,included,1080
+tv360,TV360,10037,VOH FM99,Kênh FM,2,43,41,0,84,included,1080
+tv360,TV360,2,VTV1,Kênh thiết yếu,2,59,61,0,120,included,1080
+tv360,TV360,98,VTV10,Kênh VTV,2,49,46,0,95,excluded_paid,
+tv360,TV360,3,VTV2,Kênh VTV,2,57,46,0,103,excluded_paid,
+tv360,TV360,4,VTV3,Kênh VTV,2,59,59,0,118,excluded_paid,
+tv360,TV360,108,VTV4,Kênh VTV,2,70,57,0,127,excluded_paid,
+tv360,TV360,110,VTV5,Kênh thiết yếu,2,54,55,0,109,included,1080
+tv360,TV360,157,VTV5 Tây Nam Bộ,Kênh VTV,2,37,37,0,74,excluded_paid,
+tv360,TV360,207,VTV5 Tây Nguyên,Kênh VTV,2,56,54,0,110,excluded_paid,
+tv360,TV360,10043,VTV6,Kênh VTV,2,30,28,0,58,excluded_paid,
+tv360,TV360,6,VTV7,Kênh VTV,2,56,55,0,111,excluded_login,
+tv360,TV360,115,VTV8,Kênh VTV,2,62,61,0,123,excluded_login,
+tv360,TV360,8,VTV9,Kênh VTV,2,67,67,0,134,excluded_login,
+tv360,TV360,180,VTVcab 1 - Vie Giải Trí HD,Kênh VTV Cab,2,28,28,0,56,included,1080
+tv360,TV360,184,VTVcab 12 - StyleTV HD,Kênh VTV Cab,2,38,38,0,76,included,1080
+tv360,TV360,174,VTVcab 16 - On Football HD,Kênh VTV Cab,2,35,36,0,71,excluded_login,
+tv360,TV360,170,VTVcab 18 - On Sports News,Kênh VTV Cab,2,30,32,0,62,excluded_login,
+tv360,TV360,175,VTVcab 2 - Phim Việt HD,Kênh VTV Cab,2,28,28,0,56,excluded_no_stream,
+tv360,TV360,187,VTVcab 20 - V Family HD,Kênh VTV Cab,2,43,42,0,85,included,1080
+tv360,TV360,179,VTVcab 21- Cartoon Kids HD,Kênh VTV Cab,2,77,77,0,154,included,1080
+tv360,TV360,188,VTVcab 22 - Life TV HD,Kênh VTV Cab,2,81,81,0,162,included,1080
+tv360,TV360,169,VTVcab 23 - Golf Channel,Kênh VTV Cab,2,21,20,0,41,excluded_login,
+tv360,TV360,173,VTVcab 3 - On Sports,Kênh VTV Cab,2,27,20,0,47,excluded_login,
+tv360,TV360,182,VTVcab 5 - E Channel HD,Kênh VTV Cab,2,34,34,0,68,included,1080
+tv360,TV360,183,VTVcab 6 - On Sports +,Kênh VTV Cab,2,44,45,0,89,excluded_login,
+tv360,TV360,178,VTVcab 8 Bibi SD,Kênh VTV Cab,2,53,53,0,106,included,1080
+tv360,TV360,189,VTVcab 9 - InfoTV HD,Kênh VTV Cab,2,55,55,0,110,included,1080
+tv360,TV360,176,VTVcab10 - On Cine HD,Kênh VTV Cab,2,31,31,0,62,included,1080
+tv360,TV360,185,VTVcab15 – On Music,Kênh VTV Cab,2,31,32,0,63,included,1080
+tv360,TV360,177,VTVcab19 – Vie Dramas,Kênh VTV Cab,2,27,26,0,53,included,1080
+tv360,TV360,181,Vtvcab 4 – On Movies,Kênh VTV Cab,2,26,28,0,54,included,1080
+tv360,TV360,186,Vtvcab17 – Trending TV,Kênh VTV Cab,2,50,50,0,100,included,1080
+tv360,TV360,25,Vĩnh Long 1,Kênh Vĩnh Long,2,52,52,0,104,included,1080
+tv360,TV360,26,Vĩnh Long 2,Kênh Vĩnh Long,2,40,41,0,81,included,1080
+tv360,TV360,219,Vĩnh Long 3,Kênh Vĩnh Long,2,38,38,0,76,included,1080
+tv360,TV360,220,Vĩnh Long 4,Kênh Vĩnh Long,2,44,45,0,89,included,1080
+tv360,TV360,91,Vĩnh Long 5,Kênh Vĩnh Long,2,34,32,0,66,included,1080
+tv360,TV360,273,Warner TV,Kênh quốc tế,2,42,43,0,85,excluded_login,
+tv360,TV360,31,YouTV,Kênh địa phương,2,54,54,0,108,excluded_login,
+tv360,TV360,52,Điện Biên,Kênh địa phương,2,57,56,0,113,included,1080
+tv360,TV360,49,Đà Nẵng 1,Kênh địa phương,2,61,64,0,125,included,1080
+tv360,TV360,80,Đà Nẵng 2,Kênh địa phương,2,58,59,0,117,included,1080
+tv360,TV360,51,Đắk Lắk,Kênh địa phương,2,50,47,0,97,included,1080
+tv360,TV360,255,Đồng Nai,Kênh địa phương,2,53,54,0,107,included,1080
+tv360,TV360,53,Đồng Nai 1,Kênh địa phương,2,64,65,0,129,included,1080
+tv360,TV360,54,Đồng Tháp 1,Kênh địa phương,2,53,53,0,106,included,1080
+tv360,TV360,90,Đồng Tháp 2,Kênh địa phương,2,36,35,0,71,included,1080
+fptplay,FPT Play,antv,ANTV HD,Kênh cơ bản,2,51,55,0,106,excluded_login,
+fptplay,FPT Play,an-giang-1,An Giang 1 HD,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,an-giang,An Giang 2 HD,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,an-giang-3,An Giang 3 HD,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,arirang,Arirang,Kênh quốc tế,2,53,55,0,108,excluded_login,
+fptplay,FPT Play,asian-food-channel,Asian Food Network HD,Kênh quốc tế,2,44,42,0,86,excluded_login,
+fptplay,FPT Play,bac-ninh-1,Bắc Ninh HD,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,channel-newsasia,CNA,Kênh quốc tế,3,21,21,24,66,excluded_login,
+fptplay,FPT Play,cnbc,CNBC,Kênh quốc tế,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,cao-bang,Cao Bằng,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,fpt-play,Chuỗi Thể thao & Giải trí,Kênh cơ bản,2,30,29,0,59,included,1080
+fptplay,FPT Play,ca-mau,Cà Mau HD,Kênh địa phương,3,56,57,56,169,excluded_login,
+fptplay,FPT Play,can-tho,Cần Thơ 1,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,can-tho-2,Cần Thơ 2,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,can-tho-3,Cần Thơ 3,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,dw,DW HD,Kênh quốc tế,3,74,72,72,218,excluded_login,
+fptplay,FPT Play,da-vinci-learning,Da Vinci HD,Kênh quốc tế,2,87,87,0,174,excluded_login,
+fptplay,FPT Play,france-24,France 24,Kênh quốc tế,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,gia-lai-1,Gia Lai,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,htvc-the-thao,HTV Thể Thao,Kênh cơ bản,1,25,0,0,25,excluded_login,
+fptplay,FPT Play,htv1,HTV1,Kênh cơ bản,2,57,61,0,118,excluded_login,
+fptplay,FPT Play,htv2,HTV2 HD,Kênh cơ bản,1,32,0,0,32,excluded_login,
+fptplay,FPT Play,htv3,HTV3,Kênh cơ bản,3,58,57,52,167,excluded_login,
+fptplay,FPT Play,htv4,HTV4,Kênh cơ bản,2,20,17,0,37,excluded_login,
+fptplay,FPT Play,htv5-bchannel,HTV5 Bchannel,Kênh cơ bản,2,48,50,0,98,excluded_login,
+fptplay,FPT Play,htv7-hd,HTV7 HD,Kênh cơ bản,3,40,46,41,127,excluded_login,
+fptplay,FPT Play,htv9-hd,HTV9 HD,Kênh cơ bản,3,48,44,47,139,excluded_login,
+fptplay,FPT Play,htvc-du-lich,HTVC Du Lịch,Kênh cơ bản,2,76,73,0,149,excluded_login,
+fptplay,FPT Play,htvc-gia-dinh,HTVC Gia Đình,Kênh cơ bản,2,47,47,0,94,excluded_login,
+fptplay,FPT Play,htvc-phim,HTVC Phim HD,Kênh cơ bản,2,18,18,0,36,excluded_login,
+fptplay,FPT Play,htvc-phu-nu,HTVC Phụ Nữ,Kênh cơ bản,2,41,44,0,85,excluded_login,
+fptplay,FPT Play,htvc-plus,HTVC Plus,Kênh cơ bản,2,98,94,0,192,excluded_login,
+fptplay,FPT Play,htvc-thuan-viet-hd,HTVC Thuần Việt HD,Kênh cơ bản,2,46,48,0,94,excluded_login,
+fptplay,FPT Play,hanoitv-1,HaNoiTV 1,Kênh cơ bản,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,hanoitv-2,HaNoiTV 2,Kênh cơ bản,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,ha-tinh,Hà Tĩnh HD,Kênh địa phương,2,59,51,0,110,excluded_login,
+fptplay,FPT Play,hung-yen,Hưng Yên,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,hai-phong-3,Hải Phòng 3,Kênh địa phương,2,37,30,0,67,excluded_login,
+fptplay,FPT Play,hai-phong,Hải Phòng HD,Kênh địa phương,2,55,56,0,111,excluded_login,
+fptplay,FPT Play,kbs-world,KBS World,Kênh quốc tế,1,32,0,0,32,excluded_login,
+fptplay,FPT Play,kix,KIX HD,Kênh quốc tế,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,khanh-hoa-1,Khánh Hòa 1,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,khanh-hoa,Khánh Hòa HD,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,lai-chau,Lai Châu HD,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,lao-cai,Lào Cai,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,lam-dong,Lâm Đồng 1,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,lam-dong-2,Lâm Đồng 2,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,lang-son,Lạng Sơn,Kênh địa phương,1,84,0,0,84,excluded_login,
+fptplay,FPT Play,mien-tay-thdt2,Miền Tây THĐT2,Kênh cơ bản,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,nhk-world-hd,NHK World HD,Kênh quốc tế,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,nghe-an,Nghệ An,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,ninh-binh,Ninh Bình,Kênh địa phương,1,56,0,0,56,excluded_login,
+fptplay,FPT Play,outdoor-channel,Outdoor Channel HD,Kênh quốc tế,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,phu-tho,Phú Thọ HD,Kênh địa phương,2,84,84,0,168,excluded_login,
+fptplay,FPT Play,quang-ngai-1,Quảng Ngãi TV1,Kênh địa phương,2,62,50,0,112,excluded_login,
+fptplay,FPT Play,quang-ngai-2,Quảng Ngãi TV2,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,quang-ninh-1,Quảng Ninh 1,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,quang-ninh-3,Quảng Ninh 3,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,quang-tri,Quảng Trị,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,quoc-phong-vn,Quốc Phòng VN HD,Kênh cơ bản,3,56,56,56,168,excluded_login,
+fptplay,FPT Play,fim360,SCTV6,Kênh cơ bản,3,45,45,45,135,excluded_login,
+fptplay,FPT Play,son-la,Sơn La,Kênh địa phương,2,69,54,0,123,excluded_login,
+fptplay,FPT Play,tv5-monde,TV5MONDE,Kênh quốc tế,1,45,0,0,45,excluded_login,
+fptplay,FPT Play,thanh-hoa,Thanh Hóa,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,thai-nguyen,Thái Nguyên HD,Kênh địa phương,1,71,0,0,71,excluded_login,
+fptplay,FPT Play,thua-thien-hue,Thừa Thiên Huế,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,tuyen-quang,Tuyên Quang HD,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,tay-ninh,Tây Ninh,Kênh địa phương,3,70,55,50,175,excluded_login,
+fptplay,FPT Play,vtv1-hd,VTV1 HD,Kênh cơ bản,3,59,61,62,182,included,1080
+fptplay,FPT Play,vtv10,VTV10,Kênh cơ bản,3,49,48,47,144,excluded_login,
+fptplay,FPT Play,vtv2-hd,VTV2 HD,Kênh cơ bản,3,57,50,58,165,excluded_login,
+fptplay,FPT Play,vtv3-hd,VTV3 HD,Kênh cơ bản,3,58,58,59,175,excluded_login,
+fptplay,FPT Play,vtv4-hd,VTV4 HD,Kênh cơ bản,3,70,69,70,209,excluded_login,
+fptplay,FPT Play,vtv5-hd,VTV5 HD,Kênh cơ bản,2,55,55,0,110,excluded_login,
+fptplay,FPT Play,vtv5-tay-nam-bo,VTV5 Tây Nam Bộ,Kênh cơ bản,1,38,0,0,38,excluded_login,
+fptplay,FPT Play,vtv5-tay-nguyen,VTV5 Tây Nguyên,Kênh cơ bản,2,61,56,0,117,excluded_login,
+fptplay,FPT Play,vtv6-hd,VTV6 HD,Kênh cơ bản,3,29,27,28,84,excluded_login,
+fptplay,FPT Play,vtv7-hd,VTV7 HD,Kênh cơ bản,3,56,55,43,154,excluded_login,
+fptplay,FPT Play,vtv8-hd,VTV8 HD,Kênh cơ bản,2,67,62,0,129,excluded_login,
+fptplay,FPT Play,vtv9-hd,VTV9 HD,Kênh cơ bản,1,67,0,0,67,excluded_login,
+fptplay,FPT Play,vietnam-today,Vietnam Today,Kênh cơ bản,1,72,0,0,72,excluded_login,
+fptplay,FPT Play,thvl1,Vĩnh Long 1 HD,Kênh cơ bản,1,54,0,0,54,excluded_login,
+fptplay,FPT Play,vinh-long-2,Vĩnh Long 2 HD,Kênh cơ bản,1,43,0,0,43,excluded_login,
+fptplay,FPT Play,vinh-long-3,Vĩnh Long 3 HD,Kênh cơ bản,2,40,40,0,80,excluded_login,
+fptplay,FPT Play,vinh-long-4-hd,Vĩnh Long 4 HD,Kênh cơ bản,2,59,48,0,107,excluded_login,
+fptplay,FPT Play,vinh-long-5,Vĩnh Long 5 HD,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,dien-bien,Điện Biên,Kênh địa phương,0,0,0,0,0,excluded_login,
+fptplay,FPT Play,da-nang-1,Đà Nẵng 1 HD,Kênh địa phương,3,62,65,65,192,excluded_login,
+fptplay,FPT Play,da-nang-2,Đà Nẵng 2 HD,Kênh địa phương,3,58,59,59,176,excluded_login,
+fptplay,FPT Play,dak-lak,Đăk Lăk,Kênh địa phương,1,52,0,0,52,excluded_login,
+fptplay,FPT Play,dong-nai-1,Đồng Nai 1 HD,Kênh địa phương,1,64,0,0,64,excluded_login,
+fptplay,FPT Play,dong-nai-2,Đồng Nai 2 HD,Kênh địa phương,2,65,48,0,113,excluded_login,
+fptplay,FPT Play,dong-thap,Đồng Tháp 1,Kênh địa phương,3,53,54,55,162,excluded_login,
+htv,HTV,22214,HTV4,HTV,3,21,18,21,60,included,720
+htv,HTV,2221,HTV7,HTV,3,40,46,41,127,included,1080
+htv,HTV,2223,HTV9,HTV,3,48,44,47,139,included,1080
+vtvgo,VTVgo,live_dzones_aplus,ABC-AUSTRALIA,"PHIM, GIẢI TRÍ",3,31,29,26,86,excluded_login,
+vtvgo,VTVgo,live_dzones_ap,ANIMAL PLANET,"TIN TỨC, THIẾU NHI, KHOA GIÁO",3,32,30,30,92,excluded_login,
+vtvgo,VTVgo,live_dzones_axn,AXN,"PHIM, GIẢI TRÍ",3,27,28,27,82,excluded_login,
+vtvgo,VTVgo,live_dzones_bbcearth,BBC EARTH,"TIN TỨC, THIẾU NHI, KHOA GIÁO",3,26,26,25,77,excluded_login,
+vtvgo,VTVgo,live_dzones_bbclifestyle,BBC LIFESTYLE,"PHIM, GIẢI TRÍ",3,28,29,28,85,excluded_login,
+vtvgo,VTVgo,live_dzones_bbcworldnews,BBC WORLD NEWS,"TIN TỨC, THIẾU NHI, KHOA GIÁO",3,53,53,53,159,excluded_login,
+vtvgo,VTVgo,live_dzones_bloomberg,BLOOMBERG,"TIN TỨC, THIẾU NHI, KHOA GIÁO",3,13,14,12,39,excluded_login,
+vtvgo,VTVgo,live_dzones_cn,CARTOON NETWORK,"TIN TỨC, THIẾU NHI, KHOA GIÁO",3,32,32,32,96,excluded_login,
+vtvgo,VTVgo,live_dzones_boomerang,CARTOONITO,"TIN TỨC, THIẾU NHI, KHOA GIÁO",3,46,42,42,130,excluded_login,
+vtvgo,VTVgo,live_dzones_cbb,CBEEBIES,"TIN TỨC, THIẾU NHI, KHOA GIÁO",3,164,164,164,492,excluded_login,
+vtvgo,VTVgo,live_dzones_cinemaworld,CINEMAWORLD,"PHIM, GIẢI TRÍ",3,14,15,14,43,excluded_login,
+vtvgo,VTVgo,live_dzones_max,CINEMAX,"PHIM, GIẢI TRÍ",3,15,14,14,43,excluded_login,
+vtvgo,VTVgo,live_dzones_cnn,CNN INTERNATIONAL,"TIN TỨC, THIẾU NHI, KHOA GIÁO",3,29,29,30,88,excluded_login,
+vtvgo,VTVgo,live_dzones_dsc,DISCOVERY,"TIN TỨC, THIẾU NHI, KHOA GIÁO",3,24,27,28,79,excluded_login,
+vtvgo,VTVgo,live_dzones_dscasia,DISCOVERY ASIA,"TIN TỨC, THIẾU NHI, KHOA GIÁO",3,32,35,35,102,excluded_login,
+vtvgo,VTVgo,live_dzones_dmax,DMAX,"PHIM, GIẢI TRÍ",3,36,34,36,106,excluded_login,
+vtvgo,VTVgo,live_dzones_dreamwork,DREAMWORK,"TIN TỨC, THIẾU NHI, KHOA GIÁO",3,62,62,62,186,excluded_login,
+vtvgo,VTVgo,live_dzones_ftv,FASHION TV,"PHIM, GIẢI TRÍ",3,48,48,48,144,excluded_no_stream,
+vtvgo,VTVgo,live_dzones_hbo,HBO,"PHIM, GIẢI TRÍ",3,13,14,12,39,excluded_login,
+vtvgo,VTVgo,vtvcab8,ON BiBi,Gói kênh VTVcab,3,90,90,90,270,excluded_login,
+vtvgo,VTVgo,vtvcab10,ON CINE,Gói kênh VTVcab,3,31,31,31,93,excluded_login,
+vtvgo,VTVgo,vtvcab5,ON E Channel,Gói kênh VTVcab,3,39,39,39,117,excluded_login,
+vtvgo,VTVgo,vtvcab16,ON Football,"Gói kênh VTVcab, ONE VTV Sport",3,35,36,38,109,excluded_login,
+vtvgo,VTVgo,vtvcab23,ON Golf,"Gói kênh VTVcab, ONE VTV Sport",3,21,19,21,61,excluded_login,
+vtvgo,VTVgo,vtvcab13,ON Home Shopping,Gói kênh VTVcab,3,51,51,51,153,excluded_login,
+vtvgo,VTVgo,vtvcab9,ON Info TV,Gói kênh VTVcab,3,55,55,55,165,excluded_login,
+vtvgo,VTVgo,vtvcab21,ON Kids,Gói kênh VTVcab,3,77,77,77,231,excluded_login,
+vtvgo,VTVgo,vtvcab22,ON Life,Gói kênh VTVcab,3,81,81,81,243,excluded_login,
+vtvgo,VTVgo,vtvcab15,ON MUSIC,Gói kênh VTVcab,3,62,64,62,188,excluded_login,
+vtvgo,VTVgo,vtvcab4,ON Movies,Gói kênh VTVcab,3,28,29,28,85,excluded_login,
+vtvgo,VTVgo,vtvcab7,ON O2TV,Gói kênh VTVcab,3,56,54,55,165,excluded_login,
+vtvgo,VTVgo,vtvcab2,ON Phim Việt,Gói kênh VTVcab,3,28,28,28,84,excluded_login,
+vtvgo,VTVgo,vtvcab18,ON Sport News,"Gói kênh VTVcab, ONE VTV Sport",3,30,30,28,88,excluded_login,
+vtvgo,VTVgo,vtvcab6,ON Sport+,"Gói kênh VTVcab, ONE VTV Sport",3,44,45,45,134,excluded_login,
+vtvgo,VTVgo,vtvcab3,ON Sports,"Gói kênh VTVcab, ONE VTV Sport",3,27,20,18,65,excluded_login,
+vtvgo,VTVgo,vtvcab12,ON Style,Gói kênh VTVcab,3,51,51,51,153,excluded_login,
+vtvgo,VTVgo,vtvcab17,ON Trending TV,Gói kênh VTVcab,3,55,55,54,164,excluded_login,
+vtvgo,VTVgo,vtvcab24,ON VFamily,Gói kênh VTVcab,3,43,42,43,128,excluded_login,
+vtvgo,VTVgo,vtvcab1,ON Vie Giải Trí,Gói kênh VTVcab,3,28,28,28,84,excluded_no_stream,
+vtvgo,VTVgo,sctvphimth,PHIM TỔNG HỢP,Kênh SCTV,0,0,0,0,0,excluded_login,
+vtvgo,VTVgo,sctv1,SCTV1 - HÀI,Kênh SCTV,3,54,55,56,165,excluded_login,
+vtvgo,VTVgo,sctv10,SCTV10 - MUA SẮM,Kênh SCTV,0,0,0,0,0,excluded_login,
+vtvgo,VTVgo,sctv11,"SCTV11 - VĂN HÓA, NGHỆ THUẬT, THỂ THAO",Kênh SCTV,3,29,29,30,88,excluded_login,
+vtvgo,VTVgo,sctv12,SCTV12 - DU LỊCH VÀ KHÁM PHÁ,Kênh SCTV,3,42,42,42,126,excluded_login,
+vtvgo,VTVgo,sctv13,SCTV13 - GIẢI TRÍ CHO PHÁI ĐẸP,Kênh SCTV,3,27,27,27,81,excluded_login,
+vtvgo,VTVgo,sctv14,SCTV14 - PHIM VIỆT NAM,Kênh SCTV,3,30,29,28,87,excluded_login,
+vtvgo,VTVgo,sctv15,SCTV15 - THỂ THAO,"Kênh SCTV, ONE VTV Sport",3,14,15,14,43,excluded_no_stream,
+vtvgo,VTVgo,sctv16,SCTV16 - PHIM NƯỚC NGOÀI,Kênh SCTV,2,16,16,0,32,excluded_login,
+vtvgo,VTVgo,sctv17,SCTV17 - THỂ THAO,"Kênh SCTV, ONE VTV Sport",3,15,15,15,45,excluded_login,
+vtvgo,VTVgo,sctv18,SCTV18 - THANH THIẾU NIÊN,Kênh SCTV,3,41,41,41,123,excluded_login,
+vtvgo,VTVgo,sctv19,SCTV19 - HOẠT HÌNH,Kênh SCTV,3,48,48,48,144,excluded_login,
+vtvgo,VTVgo,sctv2,SCTV2 - GIẢI TRÍ TỔNG HỢP,Kênh SCTV,3,24,24,24,72,excluded_login,
+vtvgo,VTVgo,sctv20,SCTV20 - ÂM NHẠC,Kênh SCTV,3,43,43,43,129,excluded_login,
+vtvgo,VTVgo,sctv21,SCTV21 - KÝ ỨC VIỆT NAM,Kênh SCTV,3,35,35,35,105,excluded_login,
+vtvgo,VTVgo,sctv22,SCTV22 - THỂ THAO,"Kênh SCTV, ONE VTV Sport",3,14,14,15,43,excluded_login,
+vtvgo,VTVgo,sctv3,SCTV3 - THIẾU NHI,Kênh SCTV,3,36,36,36,108,excluded_login,
+vtvgo,VTVgo,sctv4,"SCTV4 - VĂN HÓA, XÃ HỘI và GIẢI TRÍ",Kênh SCTV,3,34,34,34,102,excluded_login,
+vtvgo,VTVgo,sctv5,SCTV5 - MUA SẮM,Kênh SCTV,0,0,0,0,0,excluded_login,
+vtvgo,VTVgo,sctv6,SCTV6 - ÂM NHẠC,Kênh SCTV,3,45,45,45,135,excluded_login,
+vtvgo,VTVgo,sctv7,SCTV7 - SÀN DIỄN & SÂN KHẤU,Kênh SCTV,3,22,22,22,66,excluded_login,
+vtvgo,VTVgo,sctv8,SCTV8 - KINH TẾ & GIẢI TRÍ,Kênh SCTV,3,81,79,76,236,excluded_login,
+vtvgo,VTVgo,sctv9,SCTV9 - PHIM CHÂU Á,Kênh SCTV,3,25,25,24,74,excluded_login,
+vtvgo,VTVgo,live_dzones_tlc,TRAVEL & LIVING,"PHIM, GIẢI TRÍ",3,36,40,35,111,excluded_login,
+vtvgo,VTVgo,231,Truyền hình An Giang,Kênh thiết yếu và địa phương,1,40,0,0,40,included,720
+vtvgo,VTVgo,219,Truyền hình Bắc Ninh,Kênh thiết yếu và địa phương,1,60,0,0,60,included,720
+vtvgo,VTVgo,555,Truyền hình Cao Bằng,Kênh thiết yếu và địa phương,1,38,0,0,38,included,720
+vtvgo,VTVgo,218,Truyền hình Cà Mau,Kênh thiết yếu và địa phương,1,52,0,0,52,included,720
+vtvgo,VTVgo,89,Truyền hình Công an Nhân dân,Kênh thiết yếu và địa phương,2,51,55,0,106,included,720
+vtvgo,VTVgo,243,Truyền hình Cần Thơ 1,Kênh thiết yếu và địa phương,1,50,0,0,50,included,720
+vtvgo,VTVgo,223,Truyền hình Gia Lai,Kênh thiết yếu và địa phương,1,37,0,0,37,excluded_no_stream,
+vtvgo,VTVgo,10068,Truyền hình HTV9,Kênh thiết yếu và địa phương,2,50,44,0,94,included,720
+vtvgo,VTVgo,111,Truyền hình Hà Nội 1,Kênh thiết yếu và địa phương,1,70,0,0,70,included,720
+vtvgo,VTVgo,17,Truyền hình Hà Nội 2,Kênh thiết yếu và địa phương,1,59,0,0,59,included,720
+vtvgo,VTVgo,333,Truyền hình Hà Tĩnh,Kênh thiết yếu và địa phương,1,54,0,0,54,included,720
+vtvgo,VTVgo,185,Truyền hình Hưng Yên,Kênh thiết yếu và địa phương,1,42,0,0,42,included,720
+vtvgo,VTVgo,444,Truyền hình Hải Phòng,Kênh thiết yếu và địa phương,1,56,0,0,56,included,720
+vtvgo,VTVgo,125,Truyền hình Khánh Hòa,Kênh thiết yếu và địa phương,1,46,0,0,46,included,720
+vtvgo,VTVgo,228,Truyền hình Lai Châu,Kênh thiết yếu và địa phương,1,52,0,0,52,included,480
+vtvgo,VTVgo,247,Truyền hình Lào Cai,Kênh thiết yếu và địa phương,1,53,0,0,53,included,720
+vtvgo,VTVgo,224,Truyền hình Lâm Đồng,Kênh thiết yếu và địa phương,1,46,0,0,46,included,480
+vtvgo,VTVgo,321,Truyền hình Lạng Sơn,Kênh thiết yếu và địa phương,1,71,0,0,71,included,720
+vtvgo,VTVgo,121,Truyền hình Nghệ An,Kênh thiết yếu và địa phương,1,57,0,0,57,included,720
+vtvgo,VTVgo,183,Truyền hình Ninh Bình,Kênh thiết yếu và địa phương,1,47,0,0,47,included,480
+vtvgo,VTVgo,229,Truyền hình Phú Thọ,Kênh thiết yếu và địa phương,1,84,0,0,84,included,720
+vtvgo,VTVgo,145_nb,Truyền hình Quảng Ngãi 1,Kênh thiết yếu và địa phương,1,51,0,0,51,excluded_no_stream,
+vtvgo,VTVgo,119,Truyền hình Quảng Ninh 1,Kênh thiết yếu và địa phương,2,84,82,0,166,included,480
+vtvgo,VTVgo,120,Truyền hình Quảng Ninh 3,Kênh thiết yếu và địa phương,2,81,80,0,161,included,480
+vtvgo,VTVgo,236,Truyền hình Quảng Trị,Kênh thiết yếu và địa phương,1,44,0,0,44,included,720
+vtvgo,VTVgo,103,Truyền hình Quốc phòng Việt Nam,Kênh thiết yếu và địa phương,1,53,0,0,53,included,720
+vtvgo,VTVgo,254,Truyền hình Sơn La,Kênh thiết yếu và địa phương,1,50,0,0,50,included,720
+vtvgo,VTVgo,181,Truyền hình Thanh Hóa,Kênh thiết yếu và địa phương,1,62,0,0,62,included,720
+vtvgo,VTVgo,238,Truyền hình Thái Nguyên,Kênh thiết yếu và địa phương,1,71,0,0,71,included,480
+vtvgo,VTVgo,235,Truyền hình Tuyên Quang,Kênh thiết yếu và địa phương,1,75,0,0,75,included,720
+vtvgo,VTVgo,255,Truyền hình Tây Ninh 1,Kênh thiết yếu và địa phương,1,62,0,0,62,included,480
+vtvgo,VTVgo,10009,Truyền hình Vĩnh Long 1,Kênh thiết yếu và địa phương,1,52,0,0,52,included,720
+vtvgo,VTVgo,230,Truyền hình Điện Biên,Kênh thiết yếu và địa phương,1,58,0,0,58,included,720
+vtvgo,VTVgo,175,Truyền hình Đà Nẵng 1,Kênh thiết yếu và địa phương,1,61,0,0,61,included,720
+vtvgo,VTVgo,221,Truyền hình Đắk Lắk,Kênh thiết yếu và địa phương,1,51,0,0,51,included,1080
+vtvgo,VTVgo,234,Truyền hình Đồng Nai 1,Kênh thiết yếu và địa phương,1,64,0,0,64,included,720
+vtvgo,VTVgo,133,Truyền hình Đồng Tháp 1,Kênh thiết yếu và địa phương,1,53,0,0,53,included,720
+vtvgo,VTVgo,vietnamtoday,VIETNAM TODAY,Kênh VTV,2,74,74,0,148,included,720
+vtvgo,VTVgo,1,VTV1,Kênh VTV,2,59,61,0,120,included,720
+vtvgo,VTVgo,6,VTV10,Kênh VTV,2,49,48,0,97,included,720
+vtvgo,VTVgo,2,VTV2,Kênh VTV,2,57,54,0,111,included,720
+vtvgo,VTVgo,3,VTV3,Kênh VTV,2,57,59,0,116,included,720
+vtvgo,VTVgo,4,VTV4,Kênh VTV,3,70,70,70,210,included,720
+vtvgo,VTVgo,5,VTV5,Kênh VTV,2,54,55,0,109,included,720
+vtvgo,VTVgo,7,VTV5 Tây Nam Bộ,Kênh VTV,2,37,42,0,79,included,720
+vtvgo,VTVgo,163,VTV5 Tây Nguyên,Kênh VTV,1,56,0,0,56,included,720
+vtvgo,VTVgo,13,VTV6,Kênh VTV,2,30,29,0,59,included,720
+vtvgo,VTVgo,27,VTV7,Kênh VTV,2,56,48,0,104,included,720
+vtvgo,VTVgo,36,VTV8,Kênh VTV,2,62,61,0,123,included,360
+vtvgo,VTVgo,39,VTV9,Kênh VTV,1,67,0,0,67,included,720
+vtvgo,VTVgo,vtvgo-fast-ca-nhac,VTVgo · Ca nhạc,Kênh nội dung VTVgo,2,128,197,0,325,excluded_no_stream,
+vtvgo,VTVgo,vtvgo-fast-du-lich,VTVgo · Du Lịch Trải Nghiệm Khám Phá,Kênh nội dung VTVgo,2,119,213,0,332,excluded_no_stream,
+vtvgo,VTVgo,vtvgo-fast-game-show,VTVgo · Game show,Kênh nội dung VTVgo,2,32,35,0,67,excluded_no_stream,
+vtvgo,VTVgo,vtvgo-fast-phim-truyen,VTVgo · Phim truyện,Kênh nội dung VTVgo,2,46,47,0,93,excluded_no_stream,
+vtvgo,VTVgo,vtvgo-fast-suc-khoe-nguoi-gia,VTVgo · Sức Khỏe,Kênh nội dung VTVgo,2,64,81,0,145,excluded_no_stream,
+vtvgo,VTVgo,vtvgo-fast-thieu-nhi,VTVgo · Thiếu nhi,Kênh nội dung VTVgo,2,168,166,0,334,excluded_no_stream,
+vtvgo,VTVgo,vtvgo-fast-tai-lieu,VTVgo · Tài liệu,Kênh nội dung VTVgo,2,70,100,0,170,excluded_no_stream,
+vtvgo,VTVgo,vtvcab19,Vie Dramas,Gói kênh VTVcab,3,27,26,27,80,excluded_login,
+vtvgo,VTVgo,live_dzones_wtv,WARNER TV,"PHIM, GIẢI TRÍ",3,41,42,45,128,excluded_login,
+vtvgo,VTVgo,127,Đài PTTH tỉnh Thừa Thiên Huế,Kênh thiết yếu và địa phương,1,41,0,0,41,included,720
+mytv,MyTV,321,ABC Australia,,2,32,30,0,62,excluded_paid,
+mytv,MyTV,598,ABC Australia,,2,32,30,0,62,excluded_drm,
+mytv,MyTV,35,ANTV,,2,51,55,0,106,excluded_login,
+mytv,MyTV,590,AXN HD,,2,27,28,0,55,excluded_drm,
+mytv,MyTV,433,An Giang 1,,2,46,45,0,91,excluded_login,
+mytv,MyTV,34,An Giang 2,,2,48,48,0,96,excluded_login,
+mytv,MyTV,394,Animal Plannet HD,,0,0,0,0,0,excluded_paid,
+mytv,MyTV,589,Animal Plannet HD,,2,32,30,0,62,excluded_drm,
+mytv,MyTV,63,Arirang,,2,53,55,0,108,excluded_login,
+mytv,MyTV,298,Asian Food Network (HD),,2,44,42,0,86,excluded_login,
+mytv,MyTV,115,BTV6 - Shopping 24h,,0,0,0,0,0,excluded_login,
+mytv,MyTV,451,BTV6 - Shopping 24h,,0,0,0,0,0,excluded_paid,
+mytv,MyTV,105,Box Hits (HD),,2,13,13,0,26,excluded_paid,
+mytv,MyTV,183,Bắc Ninh,,2,62,64,0,126,excluded_login,
+mytv,MyTV,523,CINEMAWORLD HD,,2,15,16,0,31,excluded_drm,
+mytv,MyTV,358,CNBC,,2,43,43,0,86,excluded_paid,
+mytv,MyTV,593,CNN HD,,2,29,29,0,58,excluded_drm,
+mytv,MyTV,141,Cao Bằng TV,,2,37,39,0,76,excluded_login,
+mytv,MyTV,592,CartoonNetwork HD,,2,32,32,0,64,excluded_drm,
+mytv,MyTV,366,Channel News Asia HD,,0,0,0,0,0,excluded_login,
+mytv,MyTV,123,Cà Mau,,2,52,53,0,105,excluded_login,
+mytv,MyTV,39,Cần Thơ TV1,,2,50,46,0,96,excluded_login,
+mytv,MyTV,181,Cần Thơ TV2,,2,55,37,0,92,excluded_login,
+mytv,MyTV,52,Cần Thơ TV3,,2,31,31,0,62,excluded_login,
+mytv,MyTV,739,DMAX (HD),,2,37,35,0,72,excluded_drm,
+mytv,MyTV,313,DW-HD,,2,74,72,0,146,excluded_login,
+mytv,MyTV,294,DaVinci HD,,2,87,87,0,174,excluded_paid,
+mytv,MyTV,162,DakLak TV,,2,52,52,0,104,excluded_login,
+mytv,MyTV,594,Discovery(HD),,2,25,28,0,53,excluded_drm,
+mytv,MyTV,553,DreamWorks (HD),,2,62,62,0,124,excluded_drm,
+mytv,MyTV,595,FTV(HD),,2,48,48,0,96,excluded_drm,
+mytv,MyTV,308,France24,,0,0,0,0,0,excluded_login,
+mytv,MyTV,172,Gia Lai TV,,2,36,36,0,72,excluded_login,
+mytv,MyTV,16,HTV Phụ Nữ (HD),,2,41,44,0,85,excluded_login,
+mytv,MyTV,300,HTV Thuần Việt HD,,2,46,48,0,94,excluded_login,
+mytv,MyTV,18,HTV Thể thao,,2,25,27,0,52,excluded_login,
+mytv,MyTV,7,HTV1 HD,,2,57,57,0,114,excluded_login,
+mytv,MyTV,127,HTV2 HD,,2,31,30,0,61,excluded_login,
+mytv,MyTV,110,HTV3 HD,,2,55,57,0,112,excluded_login,
+mytv,MyTV,9,HTV4,,2,20,17,0,37,excluded_login,
+mytv,MyTV,479,HTV5,,2,48,50,0,98,excluded_login,
+mytv,MyTV,128,HTV7 HD,,2,40,47,0,87,excluded_login,
+mytv,MyTV,190,HTV9 HD,,2,48,45,0,93,excluded_login,
+mytv,MyTV,13,HTVC Du Lịch Cuộc Sống (HD),,2,76,73,0,149,excluded_login,
+mytv,MyTV,14,HTVC Gia Đình (HD),,2,47,47,0,94,excluded_login,
+mytv,MyTV,302,HTVC Phim HD,,2,18,18,0,36,excluded_login,
+mytv,MyTV,384,HTVC Plus HD,,2,98,94,0,192,excluded_paid,
+mytv,MyTV,866,Hollywood Classic,,2,13,15,0,28,excluded_paid,
+mytv,MyTV,168,Huế TV,,2,41,39,0,80,excluded_login,
+mytv,MyTV,400,Hà Nội 1 HD,,1,69,0,0,69,excluded_login,
+mytv,MyTV,401,Hà Nội 2 HD,,1,58,0,0,58,excluded_login,
+mytv,MyTV,405,Hà Tĩnh TV HD,,2,59,55,0,114,excluded_login,
+mytv,MyTV,408,Hưng Yên TV HD,,2,43,40,0,83,excluded_login,
+mytv,MyTV,407,Hải Phòng TV HD,,2,55,56,0,111,excluded_login,
+mytv,MyTV,306,KBS World,,0,0,0,0,0,excluded_login,
+mytv,MyTV,114,Khánh Hòa,,2,42,42,0,84,excluded_login,
+mytv,MyTV,176,Khánh Hòa 1,,0,0,0,0,0,excluded_login,
+mytv,MyTV,156,Lai Châu TV,,2,48,51,0,99,excluded_login,
+mytv,MyTV,116,Lào Cai TV,,2,56,56,0,112,excluded_login,
+mytv,MyTV,164,Lâm Đồng TV1,,2,50,50,0,100,excluded_login,
+mytv,MyTV,125,Lâm Đồng TV2,,2,45,45,0,90,excluded_login,
+mytv,MyTV,193,Lạng Sơn TV HD,,1,73,0,0,73,excluded_login,
+mytv,MyTV,69,Music Box (HD),,2,41,45,0,86,excluded_paid,
+mytv,MyTV,185,NHK World Japan HD,,2,67,59,0,126,excluded_login,
+mytv,MyTV,453,Nghệ An (HD),,2,57,58,0,115,excluded_login,
+mytv,MyTV,160,Ninh Bình TV,,2,46,46,0,92,excluded_login,
+mytv,MyTV,205,ON Bibi HD,,2,53,53,0,106,excluded_paid,
+mytv,MyTV,204,ON Cine HD,,2,31,31,0,62,excluded_paid,
+mytv,MyTV,202,ON E Channel,,2,34,34,0,68,excluded_paid,
+mytv,MyTV,208,ON Football (HD),,2,35,36,0,71,excluded_drm,
+mytv,MyTV,415,ON Golf,,2,24,22,0,46,excluded_drm,
+mytv,MyTV,437,ON InfoTV HD,,2,55,55,0,110,excluded_paid,
+mytv,MyTV,742,ON Kids (HD),,2,77,77,0,154,excluded_paid,
+mytv,MyTV,745,ON Life (HD),,2,81,81,0,162,excluded_drm,
+mytv,MyTV,435,ON MOVIES (HD),,2,30,30,0,60,excluded_paid,
+mytv,MyTV,439,ON MUSIC HD,,2,31,32,0,63,excluded_paid,
+mytv,MyTV,27,ON O2TV HD,,2,56,54,0,110,excluded_paid,
+mytv,MyTV,198,ON Phim Việt HD,,2,28,28,0,56,excluded_paid,
+mytv,MyTV,200,ON Sports (HD),,2,25,22,0,47,excluded_paid,
+mytv,MyTV,441,ON Sports News,,2,31,33,0,64,excluded_drm,
+mytv,MyTV,206,ON Style TV HD,,2,39,39,0,78,excluded_paid,
+mytv,MyTV,209,ON Trending HD,,2,50,50,0,100,excluded_paid,
+mytv,MyTV,241,ON Vfamily HD,,2,43,42,0,85,excluded_paid,
+mytv,MyTV,201,ON Vie Dramas,,2,27,26,0,53,excluded_paid,
+mytv,MyTV,197,ON Vie Giải trí,,2,28,28,0,56,excluded_paid,
+mytv,MyTV,203,On Sports+ HD,,2,44,45,0,89,excluded_drm,
+mytv,MyTV,191,Outdoor HD,,2,34,39,0,73,excluded_paid,
+mytv,MyTV,410,Phú Thọ TV (HD),,2,84,80,0,164,excluded_login,
+mytv,MyTV,227,QPVN (HD),,2,56,56,0,112,excluded_login,
+mytv,MyTV,409,QuangNgaiTV1,,2,48,49,0,97,excluded_login,
+mytv,MyTV,173,QuangNgaiTV2,,2,45,45,0,90,excluded_login,
+mytv,MyTV,455,Quảng Ninh1 (QTV1) HD,,2,84,82,0,166,excluded_login,
+mytv,MyTV,457,Quảng Ninh3 (QTV3) HD,,2,82,75,0,157,excluded_login,
+mytv,MyTV,121,Quảng Trị HD,,2,43,36,0,79,excluded_login,
+mytv,MyTV,766,SCTV - Phim Tổng hợp,,2,24,24,0,48,excluded_paid,
+mytv,MyTV,829,SCTV 22 - SSportT1,,2,12,12,0,24,excluded_paid,
+mytv,MyTV,769,SCTV1,,2,40,43,0,83,excluded_paid,
+mytv,MyTV,793,SCTV11,,2,29,29,0,58,excluded_paid,
+mytv,MyTV,796,SCTV12,,2,42,42,0,84,excluded_paid,
+mytv,MyTV,799,SCTV13,,2,31,31,0,62,excluded_paid,
+mytv,MyTV,802,SCTV14,,2,30,29,0,59,excluded_paid,
+mytv,MyTV,823,SCTV15 - SSportT2,,2,15,14,0,29,excluded_paid,
+mytv,MyTV,805,SCTV16,,2,16,16,0,32,excluded_paid,
+mytv,MyTV,826,SCTV17 - Ssport,,2,15,15,0,30,excluded_paid,
+mytv,MyTV,808,SCTV18,,2,62,62,0,124,excluded_paid,
+mytv,MyTV,811,SCTV19,,2,48,48,0,96,excluded_paid,
+mytv,MyTV,772,SCTV2,,2,31,31,0,62,excluded_paid,
+mytv,MyTV,814,SCTV20,,2,33,32,0,65,excluded_paid,
+mytv,MyTV,817,SCTV21,,2,35,35,0,70,excluded_paid,
+mytv,MyTV,775,SCTV3,,2,36,36,0,72,excluded_paid,
+mytv,MyTV,778,SCTV4,,2,34,34,0,68,excluded_paid,
+mytv,MyTV,781,SCTV6,,2,30,30,0,60,excluded_paid,
+mytv,MyTV,784,SCTV7,,2,22,22,0,44,excluded_paid,
+mytv,MyTV,787,SCTV8,,2,56,57,0,113,excluded_paid,
+mytv,MyTV,790,SCTV9,,2,25,25,0,50,excluded_paid,
+mytv,MyTV,632,SPOTV (HD),,2,17,16,0,33,excluded_drm,
+mytv,MyTV,633,SPOTV2 (HD),,2,13,13,0,26,excluded_drm,
+mytv,MyTV,157,Sơn La TV,,2,53,57,0,110,excluded_login,
+mytv,MyTV,616,THP3,,2,37,30,0,67,excluded_login,
+mytv,MyTV,596,TLC HD,,2,36,40,0,76,excluded_drm,
+mytv,MyTV,83,TV5 MONDE,,0,0,0,0,0,excluded_login,
+mytv,MyTV,477,Thanh Hóa TV HD,,2,69,72,0,141,excluded_login,
+mytv,MyTV,406,Thái Nguyên,,2,71,67,0,138,excluded_login,
+mytv,MyTV,154,Tuyên Quang TV,,2,49,41,0,90,excluded_login,
+mytv,MyTV,47,Tây Ninh TV,,2,62,51,0,113,excluded_login,
+mytv,MyTV,339,VNPT Promo,,0,0,0,0,0,excluded_login,
+mytv,MyTV,210,VTV1 HD,,2,59,52,0,111,excluded_login,
+mytv,MyTV,212,VTV10 (HD),,2,49,46,0,95,excluded_paid,
+mytv,MyTV,377,VTV2 HD,,1,58,0,0,58,excluded_paid,
+mytv,MyTV,211,VTV3 HD,,2,57,59,0,116,excluded_paid,
+mytv,MyTV,378,VTV4 HD,,1,70,0,0,70,excluded_paid,
+mytv,MyTV,379,VTV5 HD,,2,54,55,0,109,excluded_login,
+mytv,MyTV,615,VTV5 Tây Nam Bộ (HD),,2,37,34,0,71,excluded_paid,
+mytv,MyTV,642,VTV5 Tây Nguyên (HD),,2,56,56,0,112,excluded_paid,
+mytv,MyTV,6,VTV6 HD,,2,30,26,0,56,excluded_paid,
+mytv,MyTV,459,VTV7 HD,,2,56,55,0,111,excluded_paid,
+mytv,MyTV,380,VTV8 HD,,2,62,62,0,124,excluded_paid,
+mytv,MyTV,381,VTV9 HD,,2,67,60,0,127,excluded_paid,
+mytv,MyTV,857,Vietnam Today,,2,74,74,0,148,excluded_login,
+mytv,MyTV,421,Vĩnh Long 1 HD,,2,52,55,0,107,excluded_login,
+mytv,MyTV,423,Vĩnh Long 2 HD,,2,39,40,0,79,excluded_login,
+mytv,MyTV,425,Vĩnh Long 3 HD,,2,38,38,0,76,excluded_login,
+mytv,MyTV,429,Vĩnh Long 4 HD,,2,43,45,0,88,excluded_login,
+mytv,MyTV,175,Vĩnh Long 5,,2,31,33,0,64,excluded_login,
+mytv,MyTV,597,Warner HD,,2,42,43,0,85,excluded_drm,
+mytv,MyTV,869,Woman,,2,30,30,0,60,excluded_paid,
+mytv,MyTV,158,Điện Biên TV,,2,50,49,0,99,excluded_login,
+mytv,MyTV,90,Đà Nẵng 1,,2,59,62,0,121,excluded_login,
+mytv,MyTV,60,Đà Nẵng 2,,2,56,57,0,113,excluded_login,
+mytv,MyTV,404,Đồng Nai 1 HD,,2,64,64,0,128,excluded_login,
+mytv,MyTV,95,Đồng Nai 2,,2,53,48,0,101,excluded_login,
+mytv,MyTV,96,Đồng Tháp TV1,,2,53,54,0,107,excluded_login,
+mytv,MyTV,54,Đồng Tháp TV2,,2,36,36,0,72,excluded_login,
