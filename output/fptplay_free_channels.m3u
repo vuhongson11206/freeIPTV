@@ -1,0 +1,9 @@
+#EXTM3U
+# FPT Play free/public channels - generated 2026-10-28T07:26:54+07:00
+# WARNING: FPT Play CDN tokens expire in about 2-3 minutes. Run refresh_multi_playlists.py, then open this playlist immediately.
+#EXTINF:-1 tvg-id="fptplay.fpt-play" tvg-name="Chuỗi Thể thao & Giải trí" tvg-logo="https://images.fptplay53.net/media/channels/OTT_ECS/2026/09/22/transparent-logo-270x159_1790071426858.png" group-title="FPT Play / Kênh cơ bản",Chuỗi Thể thao & Giải trí
+#EXTVLCOPT:http-referrer=https://fptplay.vn/
+https://vips-livecdn.fptplay.net/live/media/fptplay/live247-hls-avc/index.m3u8?sign=1793147322-MA-0-920dde28b3887e18c9f5922f53f53957
+#EXTINF:-1 tvg-id="fptplay.vtv1-hd" tvg-name="VTV1 HD" tvg-logo="https://images.fptplay53.net/media/channels/OTT_ECS/2026/09/07/vtv1-hd.png" group-title="FPT Play / Kênh cơ bản",VTV1 HD
+#EXTVLCOPT:http-referrer=https://fptplay.vn/
+https://vips-livecdn.fptplay.net/live/media/vtv1/live247-hls-avc/index.m3u8?sign=1793147322-MA-0-4b2d7263d8f5227eba42a116b8492e13

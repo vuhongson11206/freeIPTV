@@ -1,0 +1,12 @@
+#EXTM3U
+# HTV free/public channels - generated 2026-10-28T07:26:54+07:00
+# WARNING: HTV7/HTV4 JWTs expire in about 10 minutes; HTV9 has no parsed expiry. For a stable HTV7/HTV4/HTV9 use the TV360 playlist instead.
+#EXTINF:-1 tvg-id="htv.2223" tvg-name="HTV9" tvg-logo="https://htv.mediacdn.vn/thumb_w/120/155334506109014016/2026/4/10/h9-1-17758090864251519011180.png" group-title="HTV / HTV",HTV9
+#EXTVLCOPT:http-referrer=https://htvm.htv.com.vn/
+https://s7775.cdn.mytvnet.vn/clrlive_10.m3u8?c=vstv274&q=hd&deviceType=127&userId=htvm_127852768&deviceId=&type=tv&p=0&zn=netott&rkey=htvm_1277TclOx7H&ctl=239.174&hc=ctl22&sl=6&drmsrv=ctl22.mytvnet.vn&naddr=123.29.77.75&pkg=pkg42.hni&location=FPT&rbk=17216246154&pnode=172.16.55.36&isp=all
+#EXTINF:-1 tvg-id="htv.2221" tvg-name="HTV7" tvg-logo="https://htv.mediacdn.vn/thumb_w/120/155334506109014016/2026/4/10/h7-1-17758091145581074534868.png" group-title="HTV / HTV",HTV7
+#EXTVLCOPT:http-referrer=https://htv.vn/
+https://1011337676.vnns.net/-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3OTMxNDc2ODcsInVyaSI6IlwvaHR2Y1wvaHR2Ny4xMDgwcC5uaW1ibGUuYWRtLnRtcyIsImlwIjoiIn0.tOmlvp1pzzJ_sRXVMFUzsHP98pf4YSZDulyfwmH-3Yc-/htvc/htv7.1080p.nimble.adm.tms/playlist.m3u8
+#EXTINF:-1 tvg-id="htv.22214" tvg-name="HTV4" tvg-logo="https://htv.mediacdn.vn/thumb_w/120/155334506109014016/2026/4/10/htv4-final-1775789061888945050131.png" group-title="HTV / HTV",HTV4
+#EXTVLCOPT:http-referrer=https://htv.vn/
+https://1011337676.vnns.net/-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3OTMxNDc2OTksInVyaSI6IlwvaHR2Y1wvaHR2NC43MjBwLm5pbWJsZS5hZG0udG1zIiwiaXAiOiIifQ.IRyWhltls0Wm-4r_FEGnD-xdJ-aSMDDdCre1clPLw0s-/htvc/htv4.720p.nimble.adm.tms/playlist.m3u8
